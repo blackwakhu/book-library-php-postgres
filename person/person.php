@@ -46,6 +46,18 @@ class Person {
     }
 }
 
+function query_Person ($uname)  {
+    $conn = getConnection();
+    $sql = "select * from person where uname = ?";
+    $statement = $conn->prepare($sql);
+    $statement->execute([$uname]);
+    $user = $statement->fetchAll();
+    return $user;
+}
 
+function get_Person ($uname, $passwrd)  {
+    $person = NULL;
+    return $person;
+}
 
 ?>

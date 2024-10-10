@@ -1,6 +1,14 @@
 <?php
 
+session_start();
+
 if (empty($_SESSION['person']))  {
+    header("Location: index.php");
+    exit();
+}
+
+if (isset($_POST['submit']))  {
+    session_destroy();
     header("Location: index.php");
     exit();
 }
@@ -8,6 +16,7 @@ if (empty($_SESSION['person']))  {
 $person = unserialize($_SESSION['person']);
 
 $greet = $person->hello();
+
 
 
 ?>
@@ -22,5 +31,8 @@ $greet = $person->hello();
 <body>
     <h1>DashBoard</h1>
     <h1><?= $greet ?></h1>
+    <form action="dashboard.php" method="post">
+        <button type="submit">sign out</button>
+    </form>
 </body>
 </html>

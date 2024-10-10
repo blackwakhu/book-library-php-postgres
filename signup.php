@@ -35,7 +35,7 @@ if (isset($_POST['submit']))  {
 <body>
     <h1>Sign Up</h1>
     <div>
-        <form action="" method="post">
+        <form action="./signup.php" method="post">
             <label for="fname">First Name</label><br>
             <input type="text" name="fname" id=""><br>
 

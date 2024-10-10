@@ -4,7 +4,9 @@ function getConnection ()  {
     $password = "wakhu";
     $hostname = "localhost";
 
-    return new PDO("pgsql:host=$hostname;dbname=phptest", $username, $password);
+    $db = new PDO("pgsql:host=$hostname;dbname=phptest", $username, $password);
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
+    return $db;
 }
 ?>

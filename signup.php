@@ -2,6 +2,8 @@
 
 require "./person/person.php";
 
+session_start();
+
 
 if (isset($_POST['submit']))  {
     $person = new Person(
@@ -14,6 +16,7 @@ if (isset($_POST['submit']))  {
         $_POST['contact']
     );
     $person->save();
+    $_SESSION['person'] = serialize($person);
     header("Location: dashboard.php");
     exit();
 }   

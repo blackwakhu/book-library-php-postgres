@@ -23,10 +23,24 @@ class Person {
         $this->email = $email;
         $this->contact = $contact;
     }
+
     public function save ()  {
         // save data
-
+        $conn = getConnection();
+        $sql = "insert into person(uname, fname, lname, password, dob, email, contact)
+                values( ?, ?, ?, ?, ?, ?, ?);";
+        $statement = $conn->prepare($sql);
+        $statement->execute([
+            $this->u_name,
+            $this->f_name,
+            $this->l_name,
+            $this->passwrd,
+            $this->dob,
+            $this->email,
+            $this->contact
+        ]);
     }
+
     public function hello ()  {
         return "hello $this->f_name $this->l_name";
     }

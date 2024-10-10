@@ -2,7 +2,6 @@
 
 require "./person/person.php";
 
-$greet = "";
 
 if (isset($_POST['submit']))  {
     $person = new Person(
@@ -14,7 +13,9 @@ if (isset($_POST['submit']))  {
         $_POST['email'], 
         $_POST['contact']
     );
-    $greet = $person->hello();
+    $person->save();
+    header("Location: dashboard.php");
+    exit();
 }   
 
 ?>
@@ -57,7 +58,6 @@ if (isset($_POST['submit']))  {
             <button><a href="login.php">login</a></button>
 
         </form>
-        <p><?= $greet ?></p>
     </div>
 </body>
 </html>

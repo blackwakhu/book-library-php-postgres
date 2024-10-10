@@ -1,6 +1,11 @@
 <?php 
 
 require "./person/person.php";
+
+if (isset($_POST['submit']))  {
+    echo 'post submit';
+}   
+
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +42,8 @@ require "./person/person.php";
             <label for="contact">Contact</label><br>
             <input type="tel" name="contact" id=""><br>
 
-            <input type="submit" value="submit">
-            <button><a href="./login">Login</a></button>
+            <input type="submit" value="signup" name="submit">
+            <button><a href="login.php">login</a></button>
 
         </form>
     </div>

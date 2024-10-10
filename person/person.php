@@ -22,6 +22,7 @@ class Person {
         $this->email = $email;
         $this->contact = $contact;
     }
+    public function save ()  {}
 }
 
 

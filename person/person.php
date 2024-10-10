@@ -14,6 +14,7 @@ class Person {
     private string $contact;
 
     public function __construct ($f_name, $l_name, $u_name, $passwrd, $dob, $email, $contact)  {
+        // constructor
         $this->f_name = $f_name;
         $this->l_name = $l_name;
         $this->u_name = $u_name;
@@ -22,7 +23,13 @@ class Person {
         $this->email = $email;
         $this->contact = $contact;
     }
-    public function save ()  {}
+    public function save ()  {
+        // save data
+
+    }
+    public function hello ()  {
+        return "hello $this->f_name $this->l_name";
+    }
 }
 
 

@@ -2,8 +2,19 @@
 
 require "./person/person.php";
 
+$greet = "";
+
 if (isset($_POST['submit']))  {
-    echo 'post submit';
+    $person = new Person(
+        $_POST['fname'], 
+        $_POST['lname'], 
+        $_POST['uname'], 
+        $_POST['passwrd'], 
+        $_POST['dob'], 
+        $_POST['email'], 
+        $_POST['contact']
+    );
+    $greet = $person->hello();
 }   
 
 ?>
@@ -25,7 +36,7 @@ if (isset($_POST['submit']))  {
             <input type="text" name="fname" id=""><br>
 
             <label for="lname">Last Name</label><br>
-            <input type="text" name="" id=""><br>
+            <input type="text" name="lname" id=""><br>
 
             <label for="uname">User Name</label><br>
             <input type="text" name="uname" id=""><br>
@@ -46,6 +57,7 @@ if (isset($_POST['submit']))  {
             <button><a href="login.php">login</a></button>
 
         </form>
+        <p><?= $greet ?></p>
     </div>
 </body>
 </html>

@@ -1,5 +1,8 @@
 <?php 
 
+require $_SERVER['DOCUMENT_ROOT']."/database/database.php";
+
+
 class Person {
 
     private string $f_name;

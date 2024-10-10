@@ -1,4 +1,11 @@
+<?php 
+
+require "./person/person.php";
+?>
+
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">

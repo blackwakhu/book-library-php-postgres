@@ -61,3 +61,36 @@ function get_Person ($uname, $passwrd)  {
 }
 
 ?>
+
+<!-- public static function get_Person ($uname, $passwrd)  {
+        $conn = getConnection();
+        $sql = "select * from person where uname = ? and password = ?";
+        $statement = $conn->prepare($sql);
+        $statement->execute([$uname, $passwrd]);
+        $user = $statement->fetch(\PDO::FETCH_ASSOC);
+
+        if ($user) {
+            return new Person(
+                $user['fname'],
+                $user['lname'],
+                $user['uname'],
+                $user['password'],
+                $user['dob'],
+                $user['email'],
+                $user['contact']
+            );
+        } else {
+            return null;
+        }
+    }
+
+    public static function query_Person ($uname)  {
+        $conn = getConnection();
+        $sql = "select * from person where uname = ?";
+        $statement = $conn->prepare($sql);
+        $statement->execute([$uname]);
+        $user = $statement->fetchAll(\PDO::FETCH_ASSOC);
+        return $user;
+    }
+        
+    call = Person::get_Person()-->

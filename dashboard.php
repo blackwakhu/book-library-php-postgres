@@ -2,6 +2,8 @@
 
 session_start();
 
+require "./person/person.php";
+
 if (empty($_SESSION['person']))  {
     header("Location: index.php");
     exit();
@@ -15,7 +17,7 @@ if (isset($_POST['submit']))  {
 
 $person = unserialize($_SESSION['person']);
 
-$greet = $person->hello();
+// $greet = $person->hello();
 
 
 
@@ -30,7 +32,7 @@ $greet = $person->hello();
 </head>
 <body>
     <h1>DashBoard</h1>
-    <h1><?= $greet ?></h1>
+    <h1><?= $person->hello() ?></h1>
     <form action="dashboard.php" method="post">
         <button type="submit">sign out</button>
     </form>

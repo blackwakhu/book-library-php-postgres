@@ -4,10 +4,10 @@ session_start();
 
 require "./person/person.php";
 
-if (empty($_SESSION['person']))  {
-    header("Location: index.php");
-    exit();
-}
+// if (empty($_SESSION['person']))  {
+//     header("Location: index.php");
+//     exit();
+// }
 
 if (isset($_POST['submit']))  {
     session_destroy();

@@ -1,8 +1,8 @@
 <?php 
 
-require "./person/person.php";
-
 session_start();
+
+require "./person/person.php";
 
 
 if (isset($_POST["submit"]))  {

@@ -4,14 +4,17 @@ require "./person/person.php";
 
 session_start();
 
+$us = "nothing set";
+
 
 if (isset($_POST["submit"]))  {
+    $us = "submit post button pressed";
     $person = Person::get_Person($_POST["uname"], $_POST["passwrd"]);
-    if (!empty($person)) {
-        $_SESSION['person'] = serialize($person);
-        header("Location: dashboard.php");
-        exit();
-    }
+    // if (!empty($person)) {
+    //     $_SESSION['person'] = serialize($person);
+    //     header("Location: dashboard.php");
+    //     exit();
+    // }
 }
 
 
@@ -28,15 +31,15 @@ if (isset($_POST["submit"]))  {
     <h1>Login</h1>
     
     <div>
-        <form action="login.php" method="post">
+        <form action="./login.php" method="post">
             <label for="uname">Username</label><br>
             <input type="text" name="uname" id=""><br>
             <label for="passwrd">Password</label><br>
             <input type="password" name="passwrd" id=""><br>
-            <input type="submit" value="login">
+            <input type="submit" name="submit" value="login">
             <button><a href="./signup.php">sign up</a></button>
         </form>
     </div>
-    
+    <p><?= $us ?></p>
 </body>
 </html>

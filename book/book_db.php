@@ -4,6 +4,10 @@ require $_SERVER['DOCUMENT_ROOT']."/database/database.php";
 
 class Book  {
     private $book_title;
+    private $book_isbn;
+    private $book_edition;
+    private $book_year;
+    private $synopsis;
 }
 
 class Genre  {

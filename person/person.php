@@ -25,12 +25,9 @@ class Person {
     }
 
     public function save ()  {
-        // save data
-        $conn = getConnection();
         $sql = "insert into person(uname, fname, lname, password, dob, email, contact)
                 values( ?, ?, ?, ?, ?, ?, ?);";
-        $statement = $conn->prepare($sql);
-        $statement->execute([
+        $dataItems = [
             $this->u_name,
             $this->f_name,
             $this->l_name,
@@ -38,7 +35,8 @@ class Person {
             $this->dob,
             $this->email,
             $this->contact
-        ]);
+        ];
+        saveToTable($sql, $dataItems);
     }
 
     public function hello ()  {

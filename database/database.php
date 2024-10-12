@@ -3,6 +3,7 @@
 require "dbconfig.php";
 
 function getConnection ()  {
+    // returns the connection to the database from pdo
     $username = getenv('DB_USERNAME');
     $password = getenv('DB_PASSWORD');
     $hostname = getenv('DB_HOST');
@@ -13,4 +14,12 @@ function getConnection ()  {
 
     return $db;
 }
+
+function saveToTable ($sql, $dataItems)  {
+    // template for saving data to a database
+    $conn = getConnection();
+    $statement = $conn->prepare($sql);
+    $statement->execute($dataItems);
+}
+
 ?>

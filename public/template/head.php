@@ -1,15 +1,20 @@
 <?php 
 
-function headerTemplate ($title, $css)  {
+function headerTemplate ($title, $cssfiles)  {
+    $csslink = "";
+    foreach($cssfiles as $cssfile) {
+        $csslink = "$csslink<link rel='stylesheet' href='$cssfile'>";
+    }
     $head =<<<END
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>$title</title>
-            <link rel="stylesheet" href="public/style/logins.css">
+            $csslink
         </head>
         END;
     return $head;
 }
 
 ?>
+

@@ -1,6 +1,7 @@
 <?php 
 
 require "./person/person.php";
+require "./public/template/head.php";
 
 session_start();
 
@@ -21,42 +22,45 @@ if (isset($_POST['submit']))  {
     exit();
 }   
 
+$title = "Sign up";
+$css = [
+    "./public/style/logins.css",
+    "./public/style/style.css"
+];
+
 ?>
 
 <!DOCTYPE html>
 
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up</title>
-    <link rel="stylesheet" href="public/style/logins.css">
-</head>
+
+<?= headerTemplate($title, $css) ?>
+
 <body>
     <h1>Sign Up</h1>
     <div class="formlogin">
         <form action="./signup.php" method="post">
             <label for="fname">First Name</label><br>
-            <input type="text" name="fname" id=""><br>
+            <input type="text" name="fname" id="" class="formlogininp"><br>
 
             <label for="lname">Last Name</label><br>
-            <input type="text" name="lname" id=""><br>
+            <input type="text" name="lname" id="" class="formlogininp"><br>
 
             <label for="uname">User Name</label><br>
-            <input type="text" name="uname" id=""><br>
+            <input type="text" name="uname" id="" class="formlogininp" value=""><br>
 
             <label for="passwrd">Password</label><br>
-            <input type="password" name="passwrd" id=""><br>
+            <input type="password" name="passwrd" id="" class="formlogininp" value=""><br>
 
             <label for="dob">Date of Birth</label><br>
-            <input type="date" name="dob" id=""><br>
+            <input type="date" name="dob" id="" class="formlogininp"><br>
 
             <label for="email">Email</label><br>
-            <input type="email" name="email" id=""><br>
+            <input type="email" name="email" id="" class="formlogininp"><br>
 
             <label for="contact">Contact</label><br>
-            <input type="tel" name="contact" id=""><br>
+            <input type="tel" name="contact" id="" class="formlogininp"><br>
 
             <input type="submit" value="signup" name="submit">
             <button><a href="login.php">login</a></button>

@@ -1,4 +1,11 @@
-.formlogin{
+.formlogin  {
     border: black solid 1px;
     border-radius: 2px;
+    padding: 1.1em;
+}
+
+.formlogininp {
+    width: 80%;
+    padding: 1rem;
+    font-size: 1.1em;
 }

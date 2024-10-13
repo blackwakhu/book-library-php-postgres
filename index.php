@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>The Book Testing</h1>
+    <h1>The Library</h1>
     <button><a href="./login.php">Login</a></button>
     <button><a href="./signup.php">Sign up</a></button>
 </body>

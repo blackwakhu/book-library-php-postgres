@@ -1,5 +1,4 @@
 .formlogin  {
-    border: black outset 0.6em;
     border-radius: 2rem;
     padding: 1.1em;
     margin-left: 20%;
@@ -8,7 +7,7 @@
 }
 
 .formlogininp {
-    width: 80%;
+    width: 90%;
     padding: 0.5rem;
     text-align: left;
     border: none;
@@ -37,3 +36,14 @@ input[type="submit"]:hover  {
     color: white;
 }  
 
+.formlogin.h1 {
+    text-align: center;
+}
+
+#formsignup  {
+    border: black outset 0.6em;
+}
+
+#formlogin  {
+    border: black inset 0.6em;
+}

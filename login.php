@@ -3,9 +3,10 @@
 session_start();
 
 require "./person/person.php";
+require "./public/template/head.php";
 
 
-if (isset($_POST["submit"]))  {
+if (isset($_POST["login"]))  {
     $person = Person::get_Person($_POST["uname"], $_POST["passwrd"]);
     if (!empty($person)) {
         $_SESSION['person'] = serialize($person);
@@ -14,27 +15,41 @@ if (isset($_POST["submit"]))  {
     }
 }
 
+if (isset($_POST["signup"]))  {
+    header("Location: signup.php");
+    exit();
+}
+
+$title = "Login";
+$css = [
+    "./public/style/logins.css",
+    "./public/style/style.css"
+];
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
+
+<?= headerTemplate($title, $css) ?>
+
 <body>
-    <h1>Login</h1>
     
-    <div>
+    <div class="formlogin" id="formlogin">
+        <h1>Login</h1>
+        
         <form action="./login.php" method="post">
-            <label for="uname">Username</label><br>
-            <input type="text" name="uname" id=""><br>
-            <label for="passwrd">Password</label><br>
-            <input type="password" name="passwrd" id=""><br>
-            <input type="submit" name="submit" value="login">
-            <button><a href="./signup.php">sign up</a></button>
+
+            <label class="formloginlabel" for="uname">Username</label><br>
+            <input type="text" name="uname" id="" class="formlogininp">
+
+            <label class="formloginlabel" for="passwrd">Password</label><br>
+            <input type="password" name="passwrd" id="" class="formlogininp">
+
+            <input type="submit" name="signup" value="Sign up">
+            <input type="submit" name="login" value="Login">
+
         </form>
     </div>
 </body>

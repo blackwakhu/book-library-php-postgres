@@ -4,21 +4,22 @@ session_start();
 
 require "./person/person.php";
 
-// if (empty($_SESSION['person']))  {
+if ($_SESSION['person'] == null)  {
+    echo "hello";
 //     header("Location: index.php");
 //     exit();
-// }
+}
 
 if (isset($_POST['submit']))  {
     session_destroy();
     header("Location: index.php");
     exit();
-}  elseif (isset($_POST['genre']))  {
-    header("Location: book/genre.php");
-    exit();
-}
+} // elseif (isset($_POST['genre']))  {
+//     header("Location: book/genre.php");
+//     exit();
+// }
 
-$person = unserialize($_SESSION['person']);
+// $person = unserialize($_SESSION['person']);
 
 
 ?>
@@ -32,9 +33,9 @@ $person = unserialize($_SESSION['person']);
 </head>
 <body>
     <h1>DashBoard</h1>
-    <h1><?= $person->hello() ?></h1>
+    <!-- <h1>?= $person->hello() ?></h1> -->
     <form action="dashboard.php" method="post">
-        <button type="submit" name="genre">genre</button>
+        <button>genre</button>
         <button type="submit" name="submit">sign out</button>
     </form>
 </body>

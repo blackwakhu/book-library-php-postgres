@@ -31,10 +31,11 @@ if (isset($_POST['submit']))  {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
+    <link rel="stylesheet" href="public/style/logins.css">
 </head>
 <body>
     <h1>Sign Up</h1>
-    <div>
+    <div class="formlogin">
         <form action="./signup.php" method="post">
             <label for="fname">First Name</label><br>
             <input type="text" name="fname" id=""><br>

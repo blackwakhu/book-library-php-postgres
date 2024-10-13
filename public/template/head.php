@@ -5,7 +5,7 @@ function headerTemplate ($title, $cssfiles)  {
     foreach($cssfiles as $cssfile) {
         $csslink = "$csslink<link rel='stylesheet' href='$cssfile'>";
     }
-    $favicon = $_SERVER['DOCUMENT_ROOT']."/public/images/favicon.ico";
+    $favicon = $_SERVER['DOCUMENT_HOST']."/public/favicon/favicon.ico";
     $head =<<<END
         <head>
             <meta author="Derrick Shibero Wakhu">
@@ -21,5 +21,6 @@ function headerTemplate ($title, $cssfiles)  {
 
 ?>
 
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 

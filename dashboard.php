@@ -27,8 +27,6 @@ if (isset($_POST['submit']))  {
     exit();
 }
 
-// $person = unserialize($_SESSION['person']);
-
 
 ?>
 
@@ -41,7 +39,7 @@ if (isset($_POST['submit']))  {
 </head>
 <body>
     <h1>DashBoard</h1>
-    <!-- <h1>?= $person->hello() ?></h1> -->
+    <h1><?= $person->hello() ?></h1>
     <form action="dashboard.php" method="post">
         <button type="submit" name="genre">genre</button>
         <button type="submit" name="submit">sign out</button>

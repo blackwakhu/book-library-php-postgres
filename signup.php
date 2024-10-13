@@ -6,7 +6,7 @@ require "./public/template/head.php";
 session_start();
 
 
-if (isset($_POST['submit']))  {
+if (isset($_POST['signup']))  {
     $person = new Person(
         $_POST['fname'], 
         $_POST['lname'], 
@@ -21,6 +21,11 @@ if (isset($_POST['submit']))  {
     header("Location: dashboard.php");
     exit();
 }   
+
+if (isset($_POST["login"]))  {
+    header("Location: login.php");
+    exit();
+}
 
 $title = "Sign up";
 $css = [
@@ -38,32 +43,33 @@ $css = [
 <?= headerTemplate($title, $css) ?>
 
 <body>
-    <h1>Sign Up</h1>
+    
     <div class="formlogin">
+        <h1>Sign Up</h1>
         <form action="./signup.php" method="post">
-            <label for="fname">First Name</label><br>
+            <label class="formloginlabel" for="fname">First Name</label><br>
             <input type="text" name="fname" id="" class="formlogininp"><br>
 
-            <label for="lname">Last Name</label><br>
+            <label class="formloginlabel" for="lname">Last Name</label><br>
             <input type="text" name="lname" id="" class="formlogininp"><br>
 
-            <label for="uname">User Name</label><br>
+            <label class="formloginlabel" for="uname">User Name</label><br>
             <input type="text" name="uname" id="" class="formlogininp" value=""><br>
 
-            <label for="passwrd">Password</label><br>
+            <label class="formloginlabel" for="passwrd">Password</label><br>
             <input type="password" name="passwrd" id="" class="formlogininp" value=""><br>
 
-            <label for="dob">Date of Birth</label><br>
+            <label class="formloginlabel" for="dob">Date of Birth</label><br>
             <input type="date" name="dob" id="" class="formlogininp"><br>
 
-            <label for="email">Email</label><br>
+            <label class="formloginlabel" for="email">Email</label><br>
             <input type="email" name="email" id="" class="formlogininp"><br>
 
-            <label for="contact">Contact</label><br>
+            <label class="formloginlabel" for="contact">Contact</label><br>
             <input type="tel" name="contact" id="" class="formlogininp"><br>
 
-            <input type="submit" value="signup" name="submit">
-            <button><a href="login.php">login</a></button>
+            <input type="submit" value="Sign up" name="signup">
+            <input type="submit" value="Login" name="login">
 
         </form>
     </div>

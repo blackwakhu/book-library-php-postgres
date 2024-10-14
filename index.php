@@ -1,6 +1,15 @@
 <?php 
 
 require "./public/template/head.php";
+if (isset($_POST["login"])) {
+    header("Location: login.php");
+    exit();
+}
+
+if (isset($_POST["signup"]))  {
+    header("Location: signup.php");
+    exit();
+}
 
 $title = "Index";
 
@@ -8,6 +17,8 @@ $css = [
     "./public/style/style.css",
     "./public/style/index.css"
 ];
+
+
 
 ?>
 
@@ -23,7 +34,7 @@ $css = [
         <h1>The Library</h1>
 
         <div id="formbtn">
-            <form action="index.php" method="post">
+            <form action="./index.php" method="post">
 
                 <input type="submit" value="signup" name="signup">
                 <input type="submit" value="Login" name="login">
@@ -32,7 +43,6 @@ $css = [
         </div>
         
     </header>
-    <!-- <button><a href="./login.php">Login</a></button>
-    <button><a href="./signup.php">Sign up</a></button> -->
+
 </body>
 </html>

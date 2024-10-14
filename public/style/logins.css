@@ -10,7 +10,7 @@
 }
 
 .formlogininp {
-    width: 90%;
+    width: 100%;
     padding: 0.5rem;
     text-align: left;
     border: none;
@@ -51,14 +51,14 @@ input[type="submit"]:hover  {
     border: black inset 0.6em;
 }
 
-@media screen {
-    @media screen {
-        
+@media screen and (max-width: 500px){
+    .formlogin  {
+        margin: 5%;
+        padding: 0;
+        border-width: 0 !important;
+    }
+    .formlogininp  {
+        width: 100%;
     }
 }
 
-/* @media (500px)  {
-    .formlogin {
-        background-color: pink;
-    }
-} */

@@ -5,7 +5,7 @@ function headerTemplate ($title, $cssfiles)  {
     foreach($cssfiles as $cssfile) {
         $csslink = "$csslink<link rel='stylesheet' href='$cssfile'>";
     }
-    $favicon = $_SERVER['DOCUMENT_HOST']."/public/favicon/favicon.ico";
+    $favicon = $_SERVER['HTTP_HOST']."/public/favicon/favicon.ico";
     $head =<<<END
         <head>
             <meta author="Derrick Shibero Wakhu">
@@ -19,8 +19,12 @@ function headerTemplate ($title, $cssfiles)  {
     return $head;
 }
 
+function getFunction ($jsfiles)  {
+    $jslink = "";
+    foreach ($jsfiles as $jsfile)  {
+        $jslink = "$jslink<script src='$jsfile'></script>";
+    }
+    return $jslink;
+}
+
 ?>
-
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-

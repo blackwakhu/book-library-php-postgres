@@ -26,6 +26,10 @@ $css = [
     "./public/style/style.css"
 ];
 
+$js = [
+    "./public/function/function.js"
+]
+
 
 ?>
 
@@ -52,5 +56,8 @@ $css = [
 
         </form>
     </div>
+
+    <?= getFunction($js) ?>
+    
 </body>
 </html>

@@ -43,6 +43,12 @@ class Person {
         return "hello $this->f_name $this->l_name";
     }
 
+    public function name(){
+        return $this->f_name." ".$this->l_name;
+    }
+
+
+    
     public static function get_Person ($uname, $passwrd)  {
         $conn = getConnection();
         $sql = "select * from person where uname = ? and password = ?";
@@ -73,22 +79,7 @@ class Person {
         $user = $statement->fetchAll(\PDO::FETCH_ASSOC);
         return $user;
     }
-
-    
 }
 
-function query_Person ($uname)  {
-    $conn = getConnection();
-    $sql = "select * from person where uname = ?";
-    $statement = $conn->prepare($sql);
-    $statement->execute([$uname]);
-    $user = $statement->fetchAll();
-    return $user;
-}
-
-function get_Person ($uname, $passwrd)  {
-    $person = NULL;
-    return $person;
-}
 
 ?>

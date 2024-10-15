@@ -1,0 +1,9 @@
+ul.menu_ul  {
+    list-style: none !important;
+    display: flex;
+}
+
+header  {
+    position: fixed;
+    top: 0;
+}

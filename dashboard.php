@@ -32,7 +32,8 @@ if (isset($_POST['submit']))  {
 $title = "DashBoard";
 
 $css = [
-    "./public/style/style.css"
+    "./public/style/style.css",
+    "./public/style/menu.css"
 ];
 
 $js = [

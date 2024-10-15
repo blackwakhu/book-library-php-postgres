@@ -4,6 +4,7 @@ session_start();
 
 require "./person/person.php";
 require "./public/template/links.php";
+require "./public/template/menu.php";
 
 if ($_SESSION['person'] == null)  {
     echo "hello";
@@ -28,22 +29,35 @@ if (isset($_POST['submit']))  {
     exit();
 }
 
+$title = "DashBoard";
+
+$css = [
+    "./public/style/style.css"
+];
+
+$js = [
+    "./public/function/function.js"
+];
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
+
+<?= headerTemplate($title, $css) ?>
+
 <body>
+
+    <?= get_dash_menu($person->getFName()) ?>
     <h1>DashBoard</h1>
     <h1><?= $person->hello() ?></h1>
     <form action="dashboard.php" method="post">
         <button type="submit" name="genre">genre</button>
         <button type="submit" name="submit">sign out</button>
     </form>
+
+    <?= getFunction($js) ?>
+
 </body>
 </html>

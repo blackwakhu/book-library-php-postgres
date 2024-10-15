@@ -3,6 +3,7 @@
 session_start();
 
 require "./person/person.php";
+require "./public/template/links.php";
 
 if ($_SESSION['person'] == null)  {
     echo "hello";

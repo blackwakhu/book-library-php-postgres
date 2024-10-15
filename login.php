@@ -3,7 +3,7 @@
 session_start();
 
 require "./person/person.php";
-require "./public/template/head.php";
+require "./public/template/links.php";
 
 
 if (isset($_POST["login"]))  {

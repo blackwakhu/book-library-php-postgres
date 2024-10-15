@@ -1,7 +1,7 @@
 <?php 
 
 require "./person/person.php";
-require "./public/template/head.php";
+require "./public/template/links.php";
 
 session_start();
 

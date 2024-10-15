@@ -1,7 +1,7 @@
 <?php 
 
-require "./person/person.php";
-require "./public/template/links.php";
+require "../person/person.php";
+require "../public/template/links.php";
 
 session_start();
 
@@ -18,7 +18,7 @@ if (isset($_POST['signup']))  {
     );
     $person->save();
     $_SESSION['person'] = serialize($person);
-    header("Location: dashboard.php");
+    header("Location: ../dashboard.php");
     exit();
 }   
 
@@ -29,9 +29,13 @@ if (isset($_POST["login"]))  {
 
 $title = "Sign up";
 $css = [
-    "./public/style/logins.css",
-    "./public/style/style.css"
+    "../public/style/logins.css",
+    "../public/style/style.css"
 ];
+
+$js = [
+    "../public/function/function.js"
+]
 
 ?>
 
@@ -76,5 +80,8 @@ $css = [
 
         </form>
     </div>
+
+    <?= getFunction($js) ?>
+
 </body>
 </html>

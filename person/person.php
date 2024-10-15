@@ -43,8 +43,12 @@ class Person {
         return "hello $this->f_name $this->l_name";
     }
 
-    public function name(){
+    public function name ()  {
         return $this->f_name." ".$this->l_name;
+    }
+
+    public function getFName ()  {
+        return $this->f_name;
     }
 
 

@@ -3,12 +3,12 @@
 require "./public/template/links.php";
 
 if (isset($_POST["login"])) {
-    header("Location: login.php");
+    header("Location: logins/login.php");
     exit();
 }
 
 if (isset($_POST["signup"]))  {
-    header("Location: signup.php");
+    header("Location: logins/signup.php");
     exit();
 }
 

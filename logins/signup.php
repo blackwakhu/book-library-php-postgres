@@ -65,10 +65,24 @@ $js = [
             <input type="text" name="uname" id="" class="formlogininp" value="">
 
             <label class="formloginlabel" for="passwrd">Password</label>
-            <input type="password" name="passwrd" id="" class="formlogininp" value="">
+            <div class="password-input-box">
+                <input type="password" name="passwrd" id="" class="formlogininp" value="">
+                <i class="fa-solid fa-eye show-password"></i>
+            </div>
+            <div class="password-checklist">
+                <h3 class="checklist-title">Password should be</h3>
+                <ul class="checklist">
+                    <li class="list-item">At least 8 character long</li>
+                    <li class="list-item">At least 1 number</li>
+                    <li class="list-item">At least 1 lowercase letter</li>
+                    <li class="list-item">At least 1 uppercase letter</li>
+                    <li class="list-item">At least 1 special character</li>
+                </ul>
+            </div>
 
             <label class="formloginlabel" for="dob">Date of Birth</label>
             <input type="date" name="dob" id="" class="formlogininp">
+
 
             <label class="formloginlabel" for="email">Email</label>
             <input type="email" name="email" id="" class="formlogininp">

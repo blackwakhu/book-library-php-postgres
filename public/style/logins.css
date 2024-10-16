@@ -62,3 +62,11 @@ input[type="submit"]:hover  {
     }
 }
 
+/* passowords */
+.checked  {
+    display: none;
+}
+
+.list-item  {
+    list-style: none;
+}

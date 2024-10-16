@@ -34,7 +34,8 @@ $css = [
 ];
 
 $js = [
-    "../public/function/function.js"
+    "../public/function/function.js",
+    "../public/function/login/login.js"
 ]
 
 ?>

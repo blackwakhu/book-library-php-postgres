@@ -66,7 +66,7 @@ $js = [
 
             <label class="formloginlabel" for="passwrd">Password</label>
             <div class="password-input-box">
-                <input type="password" name="passwrd" id="" class="formlogininp" value="">
+                <input type="password" name="passwrd" id="password-su-inp" class="formlogininp" value="">
                 <i class="fa-solid fa-eye show-password"></i>
             </div>
             <div class="password-checklist">

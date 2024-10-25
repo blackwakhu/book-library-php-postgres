@@ -53,9 +53,13 @@ $js = [
         if (empty($genres))  {
             echo "No genre available. Please add more";
         } else  {
+            echo "<table>";
             foreach ($genres as $genre)  {
-                echo $genre->getTitle();
+                echo "<tr>";
+                echo "<td>".$genre->getTitle()."</td>";
+                echo "</tr>";
             }
+            echo "</table>";
         }
     ?>
 

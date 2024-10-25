@@ -41,10 +41,34 @@ $js = [
     <h1>Books</h1>
     <div>
         <h2>Add Books</h2>
+        <form action="./book.php" method="post">
+
+        </form>
     </div>
     <div>
         <h2>All Books</h2>
+        <?php 
+            $books = Book::get_all_book();
+
+            if (empty($books))  {
+                echo "There is no book. Please add a book";
+            } else  {
+                echo "<table>";
+                echo "<tr><th>title</th><th>edition</th><th>year</th><th>synopsis</th><th>author</th></tr>";
+
+                foreach ($books as $book)  {
+                    echo "<tr>";
+                    echo "<td>".$book->getTitle()."</td>";
+                    echo "</tr>";
+                }
+
+                echo "<table>";
+            }
+        ?>    
     </div>
+
+    <?= getFunction($js) ?>
+    
 </body>
 
 </html>

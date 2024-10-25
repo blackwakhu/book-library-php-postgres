@@ -20,6 +20,10 @@ class Book  {
         $this->author_lname = $lname;
     }
 
+    public function getTitle ()  {
+        return $this->book_title;
+    }
+
     public function Save ()  {
         $sql = "insert into books (title, edition, year_published, synopsis, author_fname, author_lname) 
                 values (?, ?, ?, ?, ?, ?)";

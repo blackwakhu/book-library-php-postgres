@@ -35,7 +35,23 @@ class Book  {
     }
 
     public static function get_all_book ()  {
+        $books = [];
 
+        $sql = "select * from books";
+        $data = selectAllDatabase($sql, []);
+
+        foreach ($data as $datum)  {
+            array_push($books, new Book(
+                $datum["title"],
+                $datum['edition'],
+                $datum['year_published'],
+                $datum['synopsis'],
+                $datum['author_fname'],
+                $datum['author_lname']
+            ));
+        }
+        
+        return $books;
     }
 }
 
@@ -53,7 +69,7 @@ class Genre  {
     public function Save ()  {
         $sql = "insert into genre (title) values ( ? )";
         $dataItems = [$this->genre_title];
-        
+
         saveToTable($sql, $dataItems);
     }
 
@@ -69,8 +85,6 @@ class Genre  {
 
         return $genres;
     }
-
-
 
 }
 

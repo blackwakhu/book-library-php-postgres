@@ -22,4 +22,21 @@ function saveToTable ($sql, $dataItems)  {
     $statement->execute($dataItems);
 }
 
+function selectDatabase ($sql, $dataItems)  {
+    $conn = getConnection();
+    $statement = $conn->prepare($sql);
+    $statement->execute($dataItems);
+    return $statement;
+}
+
+function selectAllDatabase ($sql, $dataItems)  {
+    $statement = selectDatabase($sql, $dataItems);
+    return $statement->fetchAll(\PDO::FETCH_ASSOC);
+}
+
+function selectOneDatabase ($sql, $dataItems)  {
+    $statement = selectDatabase($sql, $dataItems);
+    return $statement->fetchOne(\PDO::FETCH_ASSOC);
+}
+
 ?>

@@ -38,6 +38,13 @@ $js = [
 <?= headerTemplate("book", $css) ?>
 
 <body>
+    <h1>Books</h1>
+    <div>
+        <h2>Add Books</h2>
+    </div>
+    <div>
+        <h2>All Books</h2>
+    </div>
 </body>
 
 </html>

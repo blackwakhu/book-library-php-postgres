@@ -27,6 +27,9 @@ if (isset($_POST['submit']))  {
 } elseif (isset($_POST['genre']))  {
     header("Location: book/genre.php");
     exit();
+} elseif (isset($_POST['book']))  {
+    header("Location: book/book.php");
+    exit();
 }
 
 $title = "DashBoard";
@@ -54,6 +57,7 @@ $js = [
     <h1>DashBoard</h1>
     <h1><?= $person->hello() ?></h1>
     <form action="dashboard.php" method="post">
+        <button type="submit" name="book">book</button>
         <button type="submit" name="genre">genre</button>
         <button type="submit" name="submit">sign out</button>
     </form>

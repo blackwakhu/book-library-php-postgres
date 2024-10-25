@@ -8,7 +8,7 @@ require "../public/template/links.php";
 
 if ($_SESSION['person'] == null)  {
     echo "hello";
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 

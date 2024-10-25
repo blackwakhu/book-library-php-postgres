@@ -13,7 +13,7 @@ class Book  {
 class Genre  {
     private $genre_title;
 
-    public function __contruct ($title)  {
+    public function __construct ($title)  {
         $this->genre_title = $title;
     }
 
@@ -21,13 +21,10 @@ class Genre  {
         return $this->genre_title;
     }
 
-    public function save_genre ()  {
-        $conn = getConnection();
+    public function Save ()  {
         $sql = "insert into genre (title) values ( ? )";
-        $statement = $conn->prepare($sql);
-        $statement->execute([
-            $this->genre_title
-        ]);
+        $dataItems = [$this->genre_title];
+        saveToTable($sql, $dataItems);
     }
 
     public static function get_all_genre ()  {
@@ -35,7 +32,7 @@ class Genre  {
         $genres = [];
         $statement = $conn->prepare("select * from genre");
         $statement->execute();
-        $data = $statement->fetchAll();
+        $data = $statement->fetchAll(\PDO::FETCH_ASSOC);
         foreach ($data as $datum)  {
             array_push($genres, new Genre($datum['title']));
         }

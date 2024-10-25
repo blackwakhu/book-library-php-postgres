@@ -6,19 +6,12 @@ require "../models/person.php";
 require "../models/book.php";
 require "../public/template/links.php";
 
+$new_status = "";
 
-if (isset($_POST["login"]))  {
-    $person = Person::get_Person($_POST["uname"], $_POST["passwrd"]);
-    if (!empty($person)) {
-        $_SESSION['person'] = serialize($person);
-        header("Location: ../dashboard.php");
-        exit();
-    }
-}
-
-if (isset($_POST["signup"]))  {
-    header("Location: signup.php");
-    exit();
+if (isset($_POST["add_genre"]))  {
+    $newGenre = new Genre($_POST["genre_title"]);
+    $newGenre->Save();
+    $new_status = "Successfully saved";
 }
 
 $title = "genre";
@@ -28,7 +21,7 @@ $css = [
 
 $js = [
     "../public/function/function.js"
-]
+];
 
 
 ?>
@@ -42,7 +35,18 @@ $js = [
 <body>
     <h1>Genre</h1>
 
-    <h1>All genres</h1>
+    <h2>Add Genre </h2>
+    <div>
+        <form action="./genre.php" method="post">
+            <label for="genre_title">Genre</label>
+            <input type="text" name="genre_title" id="genre_title" required>
+            <input type="submit" value="submit" name="add_genre">
+        </form>
+    </div>
+
+    <?= $new_status ?>
+
+    <h2>All genres</h2>
     
     <?php
         $genres = Genre::get_all_genre();
@@ -54,6 +58,8 @@ $js = [
             }
         }
     ?>
+
+    
     
     <?= getFunction($js) ?>
     

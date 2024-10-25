@@ -24,6 +24,26 @@ class Book  {
         return $this->book_title;
     }
 
+    public function getEdition ()  {
+        return $this->book_edition;
+    }
+
+    public function getYear ()  {
+        return $this->book_year;
+    }
+
+    public function getSynopsis ()  {
+        return $this->synopsis;
+    }
+
+    public function getAuthorName ()  {
+        return $this->author_fname." ".$this->author_lname;
+    }
+
+    public function getISBN ()  {
+        return $this->book_isbn;
+    }
+
     public function Save ()  {
         $sql = "insert into books (title, edition, year_published, synopsis, author_fname, author_lname) 
                 values (?, ?, ?, ?, ?, ?)";

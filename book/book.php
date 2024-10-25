@@ -42,7 +42,14 @@ $js = [
     <div>
         <h2>Add Books</h2>
         <form action="./book.php" method="post">
-
+            <label for="title">Title</label>
+            <input type="text" name="title" id="" required>
+            <label for="edition">Edition</label>
+            <input type="number" name="edition" id="" required>
+            <label for="year">Year of publication</label>
+            <input type="number" name="year" id="" min=1000>
+            <label for="synopsis">Synopsis</label>
+            <textarea name="synopsis" id="" cols="30" rows="10" required></textarea>
         </form>
     </div>
     <div>
@@ -54,14 +61,14 @@ $js = [
                 echo "There is no book. Please add a book";
             } else  {
                 echo "<table>";
-                echo "<tr><th>title</th><th>edition</th><th>year</th><th>author</th></tr>";
+                echo "<tr><th>title</th><th>edition</th><th>year</th><th>series</th></tr>";
 
                 foreach ($books as $book)  {
                     echo "<tr>";
                     echo "<td>".$book->getTitle()."</td>";
                     echo "<td>".$book->getEdition()."</td>";
                     echo "<td>".$book->getYear()."</td>";
-                    echo "<td>".$book->getAuthorName()."</td>";
+                    echo "<td>".$book->getSeries()."</td>";
                     echo "</tr>";
                 }
 

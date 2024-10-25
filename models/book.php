@@ -8,16 +8,14 @@ class Book  {
     private $book_edition;
     private $book_year;
     private $synopsis;
-    private $author_fname;
-    private $author_lname;
+    private $series;
 
-    public function __construct (string $title, int $edition, int $year, string $synopsis, string $fname, string $lname)  {
+    public function __construct (string $title, int $edition, int $year, string $synopsis, string $series)  {
         $this->book_title = $title;
         $this->book_edition = $edition;
         $this->book_year = $year;
         $this->synopsis = $synopsis;
-        $this->author_fname = $fname;
-        $this->author_lname = $lname;
+        $this->series = $series;
     }
 
     public function getTitle ()  {
@@ -36,8 +34,8 @@ class Book  {
         return $this->synopsis;
     }
 
-    public function getAuthorName ()  {
-        return $this->author_fname." ".$this->author_lname;
+    public function getSeries ()  {
+        return $this->series;
     }
 
     public function getISBN ()  {
@@ -45,15 +43,14 @@ class Book  {
     }
 
     public function Save ()  {
-        $sql = "insert into books (title, edition, year_published, synopsis, author_fname, author_lname) 
-                values (?, ?, ?, ?, ?, ?)";
+        $sql = "insert into books (title, edition, year_published, synopsis, series) 
+                values (?, ?, ?, ?, ?)";
         $dataItems = [
             $this->book_title,
             $this->book_edition,
             $this->book_year,
             $this->synopsis,
-            $this->author_fname,
-            $this->author_lname
+            $this->series
         ];
         saveToTable($sql, $dataItems);
     }
@@ -70,8 +67,7 @@ class Book  {
                 $datum['edition'],
                 $datum['year_published'],
                 $datum['synopsis'],
-                $datum['author_fname'],
-                $datum['author_lname']
+                $datum['series']
             ));
         }
         

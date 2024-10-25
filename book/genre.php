@@ -3,6 +3,7 @@
 session_start();
 
 require "../models/person.php";
+require "../models/book.php";
 require "../public/template/links.php";
 
 
@@ -40,6 +41,19 @@ $js = [
 
 <body>
     <h1>Genre</h1>
+
+    <h1>All genres</h1>
+    
+    <?php
+        $genres = Genre::get_all_genre();
+        if (empty($genres))  {
+            echo "No genre available. Please add more";
+        } else  {
+            foreach ($genres as $genre)  {
+                echo $genre->getTitle();
+            }
+        }
+    ?>
     
     <?= getFunction($js) ?>
     

@@ -26,6 +26,8 @@ class Genre  {
         ]);
     }
 
+    public static function get_all_genre ()  {}
+
 }
 
 ?>

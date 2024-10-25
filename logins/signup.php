@@ -1,6 +1,6 @@
 <?php 
 
-require "../person/person.php";
+require "../models/person.php";
 require "../public/template/links.php";
 
 session_start();

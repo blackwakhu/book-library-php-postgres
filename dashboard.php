@@ -2,7 +2,7 @@
 
 session_start();
 
-require "./person/person.php";
+require "./models/person.php";
 require "./public/template/links.php";
 require "./public/template/menu.php";
 

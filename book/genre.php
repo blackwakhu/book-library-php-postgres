@@ -39,6 +39,7 @@ $js = [
 <?= headerTemplate($title, $css) ?>
 
 <body>
+    <h1>Genre</h1>
     
     <?= getFunction($js) ?>
     

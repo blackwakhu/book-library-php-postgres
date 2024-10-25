@@ -20,6 +20,20 @@ try {
     exit();
 }
 
+$success = "";
+
+if (isset($_POST["addbook"]))  {
+    $book = new Book (
+        $_POST["title"],
+        $_POST['edition'],
+        $_POST['year'],
+        $_POST['synopsis'],
+        $_POST['series']
+    );
+    $book->Save();
+    $success = "Successfully saved";
+}
+
 $css = [
     "../public/style/style.css"
 ];
@@ -43,14 +57,18 @@ $js = [
         <h2>Add Books</h2>
         <form action="./book.php" method="post">
             <label for="title">Title</label>
-            <input type="text" name="title" id="" required>
+            <input type="text" name="title" id="" required/>
             <label for="edition">Edition</label>
-            <input type="number" name="edition" id="" required>
+            <input type="number" name="edition" id="" required min="1"/>
             <label for="year">Year of publication</label>
-            <input type="number" name="year" id="" min=1000>
+            <input type="number" name="year" id="" min="1000"/>
             <label for="synopsis">Synopsis</label>
             <textarea name="synopsis" id="" cols="30" rows="10" required></textarea>
+            <label for="series">Series</label>
+            <input type="text" name="series" id="" required>
+            <input type="submit" value="submit" name="addbook"/>
         </form>
+        <?= $success ?>
     </div>
     <div>
         <h2>All Books</h2>

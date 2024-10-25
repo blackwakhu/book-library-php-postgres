@@ -19,6 +19,20 @@ class Book  {
         $this->author_fname = $fname;
         $this->author_lname = $lname;
     }
+
+    public function Save ()  {
+        $sql = "insert into books (title, edition, year_published, synopsis, author_fname, author_lname) 
+                values (?, ?, ?, ?, ?, ?)";
+        $dataItems = [
+            $this->book_title,
+            $this->book_edition,
+            $this->book_year,
+            $this->synopsis,
+            $this->author_fname,
+            $this->author_lname
+        ];
+        saveToTable($sql, $dataItems);
+    }
 }
 
 class Genre  {

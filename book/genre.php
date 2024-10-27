@@ -2,7 +2,7 @@
 
 session_start();
 
-require "../models/person.php";
+require "../models/genre.php";
 require "../models/book.php";
 require "../public/template/links.php";
 

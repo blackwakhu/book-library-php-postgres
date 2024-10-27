@@ -4,7 +4,6 @@ require_once $_SERVER['DOCUMENT_ROOT']."/database/database.php";
 
 class Book  {
     private $book_title;
-    private $book_isbn;
     private $book_edition;
     private $book_year;
     private $synopsis;
@@ -39,7 +38,7 @@ class Book  {
     }
 
     public function getISBN ()  {
-        return $this->book_isbn;
+        return Book::getISBNfromDB($this->book_title, $this->book_edition);
     }
 
     public function Save ()  {
@@ -53,6 +52,15 @@ class Book  {
             $this->series
         ];
         saveToTable($sql, $dataItems);
+
+    }
+
+    public static function getISBNfromDB (string $title, int $edition)  {
+        $sql = "select isdn from books where title = ? and edition = ?";
+
+        $data = selectOneDatabase($sql, [$title, $edition]);
+
+        return $data;
     }
 
     public static function get_all_book ()  {

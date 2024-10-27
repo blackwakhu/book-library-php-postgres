@@ -79,10 +79,11 @@ $js = [
                 echo "There is no book. Please add a book";
             } else  {
                 echo "<table>";
-                echo "<tr><th>title</th><th>edition</th><th>year</th><th>series</th></tr>";
+                echo "<tr><th>Book ISBN</th><th>title</th><th>edition</th><th>year</th><th>series</th></tr>";
 
                 foreach ($books as $book)  {
                     echo "<tr>";
+                    echo "<td>".$book->getISBN()."</td>";
                     echo "<td>".$book->getTitle()."</td>";
                     echo "<td>".$book->getEdition()."</td>";
                     echo "<td>".$book->getYear()."</td>";

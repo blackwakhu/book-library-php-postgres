@@ -38,6 +38,11 @@ class Book  {
     }
 
     public function getISBN ()  {
+        // $data = Book::getISBNfromDB($this->book_title, $this->book_edition);
+        // $isbn = 0;
+        // foreach ($data as $datum)  {
+        //     $isbn = $datum["isdn"];
+        // }
         return Book::getISBNfromDB($this->book_title, $this->book_edition);
     }
 
@@ -60,7 +65,12 @@ class Book  {
 
         $data = selectOneDatabase($sql, [$title, $edition]);
 
-        return $data;
+        $isbn = 0;
+        foreach ($data as $datum)  {
+            $isbn = $datum["isdn"];
+        }
+
+        return $isbn;
     }
 
     public static function get_all_book ()  {

@@ -36,7 +36,7 @@ function selectAllDatabase ($sql, $dataItems)  {
 
 function selectOneDatabase ($sql, $dataItems)  {
     $statement = selectDatabase($sql, $dataItems);
-    return $statement->fetchAll(\PDO::FETCH_ASSOC)[0];
+    return $statement->fetchAll(\PDO::FETCH_ASSOC);
 }
 
 ?>

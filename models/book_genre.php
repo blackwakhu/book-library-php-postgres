@@ -25,10 +25,11 @@ class BookGenre {
         saveToTable($sql, $dataItems);
     }
 
-    public static function NotGenre ($isbn)  {
-        // this will return the genres that are not of the same book
-    }
+}
 
+function NotGenre  (int $isbn)  {
+    // this will return the genres that are not of the same book
+    
 }
 
 

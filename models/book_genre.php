@@ -42,7 +42,26 @@ function getBookGenre (int $isbn)  {
 
 function NotGenre  (int $isbn)  {
     // this will return the genres that are not of the same book
+    $noneGenre = [];
+    $bookGenre = getBookGenre($isbn);
+    $genre = Genre::get_all_genre();
 
+    $found = false;
+
+    foreach ($genre as $genr)  {
+        foreach ($bookGenre as $bookge)  {
+            if ($genr == $bookge)  {
+                $found = true;
+            }
+        }
+        if ($found)  {
+            $found = false;
+        } else  {
+            array_push($noneGenre, $genr);
+        } 
+    }
+
+    return $noneGenre;
 }
 
 

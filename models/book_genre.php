@@ -13,9 +13,13 @@ class BookGenre {
         $this->genre = $genre;
     }
 
-    public static function fromBook (int $book)  {
-        $sql = "select genre from book_genre where book = ?";
-        $data = "";
+    public function Save ()  {
+        $sql = "insert into book_genre (genre, book) values (?, ?)";
+        $dataItems = [
+            $this->book->getISBN(),
+            $this->genre->getTitle()
+        ];
+        saveToTable($sql, $dataItems);
     }
 
 }

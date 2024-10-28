@@ -27,9 +27,22 @@ class BookGenre {
 
 }
 
+function getBookGenre (int $isbn)  {
+    // this will return the genre from the book
+    $sql = "select genre from book_genre where book= ? ";
+    $data = selectAllDatabase($sql, [$isbn]);
+    $genres = [];
+
+    foreach ($data as $datum)  {
+        array_push($genres, new Genre ($datum["title"]));
+    }
+
+    return $genres;
+}
+
 function NotGenre  (int $isbn)  {
     // this will return the genres that are not of the same book
-    
+
 }
 
 

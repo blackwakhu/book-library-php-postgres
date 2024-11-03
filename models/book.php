@@ -102,6 +102,19 @@ class Book  {
         return $book;
     }
 
+    public static function fetch_book_from_isbn (int $isbn)  {
+        $sql = "select * from books where book_isdn = ? limit 1";
+        $data = select_one_element($sql, [$isbn]);
+
+        return new Book (
+            $data["title"],
+            $data['edition'],
+            $data['year_published'],
+            $data['synopsis'],
+            $data['series']
+        );
+    }
+
     public static function get_all_book ()  {
         $books = [];
 

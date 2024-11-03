@@ -25,7 +25,7 @@ class BookGenre {
     
     public static function fromRawInput (int $book, string $genre)  {
         return new BookGenre (
-            Book::get_book_from_isbn($book),
+            Book::fetch_book_from_isbn($book),
             new Genre($genre)
         );
     }

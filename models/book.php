@@ -1,7 +1,7 @@
 <?php 
 
 require_once $_SERVER['DOCUMENT_ROOT']."/database/database.php";
-require_once "./genre.php";
+require_once "../models/genre.php";
 
 class Book  {
     private $book_title;

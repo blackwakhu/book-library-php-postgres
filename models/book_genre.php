@@ -1,8 +1,6 @@
 <?php 
 
-require "./book.php";
-require "./genre.php";
-require "../database/database.php";
+require "../models/book.php";
 
 class BookGenre {
     // this will save the book and the genre

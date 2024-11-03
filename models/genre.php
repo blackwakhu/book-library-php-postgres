@@ -1,4 +1,5 @@
 <?php 
+require_once $_SERVER['DOCUMENT_ROOT']."/database/database.php";
 
 class Genre  {
     private string $genre_title;

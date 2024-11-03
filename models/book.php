@@ -1,6 +1,7 @@
 <?php 
 
 require_once $_SERVER['DOCUMENT_ROOT']."/database/database.php";
+require_once "./genre.php";
 
 class Book  {
     private $book_title;
@@ -52,6 +53,20 @@ class Book  {
             $this->series
         ];
         saveToTable($sql, $dataItems);
+
+    }
+
+    public function getGenres ()  {
+        $sql = "select genre_title from book_genre where book_isdn = ?";
+        $data = selectAllDatabase($sql, [$this->getISBN()]);
+
+        $genres = [];
+
+        foreach ($data as $datum)  {
+            array_push($genres, new Genre($datum['genre_title']));
+        }
+
+        return $genres;
 
     }
 

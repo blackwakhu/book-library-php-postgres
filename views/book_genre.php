@@ -3,8 +3,8 @@
 session_start();
 
 require "../models/person.php";
-require "../models/book.php";
-require "../models/book_genre.php";
+// require "../models/book.php";
+// require "../models/book_genre.php";
 require "../public/template/links.php";
 
 if ($_SESSION['person'] == null)  {
@@ -39,7 +39,7 @@ $js = [
 <!DOCTYPE html>
 <html lang="en">
 
-<?= headerTemplate("book", $css) ?>
+<?= headerTemplate("book genre", $css) ?>
 
 <body>
 

@@ -15,7 +15,7 @@ $js = [
 ];
 
 if (isset($_POST["book_genre_submit"]))  {
-    $bookgenre = new BookGenre($_POST["book_isdn"], $_POST["genre"]);
+    $bookgenre = BookGenre::fromRawInput($_POST["book_isdn"], $_POST["genre"]);
     $bookgenre->Save();
 }
 

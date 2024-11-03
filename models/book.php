@@ -87,19 +87,19 @@ class Book  {
         $sql = "select * from books where book_isdn = ?";
 
         $datum = selectOneDatabase($sql, [$isbn]);
+        $book;
         foreach ($datum as $data)  {
             if (!empty($data[0]))  {
-                return new Book(
+                $book =  new Book(
                     $data["title"],
                     $data['edition'],
                     $data['year_published'],
                     $data['synopsis'],
                     $data['series']
                 );
-            } else  {
-                return;
-            }
+            } 
         }
+        return $book;
     }
 
     public static function get_all_book ()  {

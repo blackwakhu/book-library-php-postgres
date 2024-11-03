@@ -17,12 +17,18 @@ class BookGenre {
         // this will save the book and genre
         $sql = "insert into book_genre (genre_title, book_isdn) values (?, ?)";
         $dataItems = [
-            $this->book->getISBN(),
-            $this->genre->getTitle()
+            $this->genre->getTitle(),
+            $this->book->getISBN()
         ];
         saveToTable($sql, $dataItems);
     }
-
+    
+    public static function fromRawInput (int $book, string $genre)  {
+        return new BookGenre (
+            Book::get_book_from_isbn($book),
+            new Genre($genre)
+        );
+    }
 }
 
 function getBookGenre (int $isbn)  {

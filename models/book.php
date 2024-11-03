@@ -87,7 +87,7 @@ class Book  {
         $sql = "select * from books where book_isdn = ?";
 
         $datum = selectOneDatabase($sql, [$isbn]);
-        $book;
+        $book = null;
         foreach ($datum as $data)  {
             if (!empty($data[0]))  {
                 $book =  new Book(

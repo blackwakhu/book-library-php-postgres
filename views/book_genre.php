@@ -4,7 +4,7 @@ session_start();
 
 require "../models/person.php";
 // require "../models/book.php";
-// require "../models/book_genre.php";
+require "../models/book_genre.php";
 require "../public/template/links.php";
 
 if ($_SESSION['person'] == null)  {
@@ -41,7 +41,16 @@ $js = [
 
 <?= headerTemplate("book genre", $css) ?>
 
+
 <body>
+
+    <form action="./book_genre.php" method="post">
+        <label for="genre">Enter the genre</label>
+        <input type="text" name="genre" id required/>
+        <label for="book">Enter ISBN</label>
+        <input type="number" name="book_isbn" id="" required/>
+        <input type="submit" value="Submit" name="book_genre_submit"/>
+    </form>
 
     <?= getFunction($js) ?>
     

@@ -17,7 +17,7 @@ class BookGenre {
 
     public function Save ()  {
         // this will save the book and genre
-        $sql = "insert into book_genre (genre, book) values (?, ?)";
+        $sql = "insert into book_genre (genre_title, book_isdn) values (?, ?)";
         $dataItems = [
             $this->book->getISBN(),
             $this->genre->getTitle()

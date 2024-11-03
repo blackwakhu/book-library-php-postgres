@@ -12,7 +12,7 @@ class Genre  {
     }
 
     public function Save ()  {
-        $sql = "insert into genre (title) values ( ? )";
+        $sql = "insert into genre (genre_title) values ( ? )";
         $dataItems = [$this->genre_title];
 
         saveToTable($sql, $dataItems);
@@ -21,11 +21,11 @@ class Genre  {
     public static function get_all_genre ()  {
         $genres = [];
 
-        $sql = "select * from genre";
+        $sql = "select * from genre order by genre_title";
         $data = selectAllDatabase($sql, []);
 
         foreach ($data as $datum)  {
-            array_push($genres, new Genre($datum['title']));
+            array_push($genres, new Genre($datum['genre_title']));
         }
 
         return $genres;

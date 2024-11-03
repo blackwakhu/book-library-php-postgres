@@ -56,13 +56,13 @@ class Book  {
     }
 
     public static function getISBNfromDB (string $title, int $edition)  {
-        $sql = "select isdn from books where title = ? and edition = ?";
+        $sql = "select book_isdn from books where title = ? and edition = ?";
 
         $data = selectOneDatabase($sql, [$title, $edition]);
 
         $isbn = 0;
         foreach ($data as $datum)  {
-            $isbn = $datum["isdn"];
+            $isbn = $datum["book_isdn"];
         }
 
         return $isbn;
@@ -71,7 +71,7 @@ class Book  {
     public static function get_all_book ()  {
         $books = [];
 
-        $sql = "select * from books";
+        $sql = "select * from books order by title, edition";
         $data = selectAllDatabase($sql, []);
 
         foreach ($data as $datum)  {

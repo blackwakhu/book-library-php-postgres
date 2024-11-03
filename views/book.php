@@ -52,7 +52,7 @@ $js = [
 <?= headerTemplate("book", $css) ?>
 
 <body>
-    <a href="http://dashboard.php">Home</a>
+    <a href="../dashboard.php">Home</a>
     <h1>Books</h1>
     <div>
         <h2>Add Books</h2>

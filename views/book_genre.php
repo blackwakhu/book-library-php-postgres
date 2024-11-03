@@ -43,7 +43,7 @@ $js = [
 
 
 <body>
-    <a href="http://dashboard.php">Home</a>
+    <a href="../dashboard.php">Home</a>
 
     <form action="./book_genre.php" method="post">
         <label for="genre">Enter the genre</label>

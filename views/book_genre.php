@@ -14,6 +14,11 @@ $js = [
     "../public/function/function.js"
 ];
 
+if (isset($_POST["book_genre_submit"]))  {
+    $bookgenre = new BookGenre($_POST["book_isdn"], $_POST["genre"]);
+    $bookgenre->Save();
+}
+
 
 ?>
 
@@ -34,6 +39,36 @@ $js = [
         <input type="number" name="book_isbn" id="" required/>
         <input type="submit" value="Submit" name="book_genre_submit"/>
     </form>
+
+    <div>
+        <?php
+            $books = booksGenre();
+            if (!empty($books))  {
+                echo "
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Book</th>
+                                <th>Genre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                ";
+                foreach ($books as $book)  {
+                    echo "
+                        <tr>
+                            <td>".$book["title"]."</td>
+                            <td>".$book["genre_title"]."</td>
+                        </tr>
+                    ";
+                }
+                echo "
+                        </tbody>
+                    </table>
+                ";
+            }
+        ?>
+    </div>
 
     <?= getFunction($js) ?>
     

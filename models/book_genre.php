@@ -62,6 +62,27 @@ function NotGenre  (int $isbn)  {
     return $noneGenre;
 }
 
+function booksGenre ()  {
+    $sql = "select genre_title, title from book_genre
+            inner join books using (book_isdn)
+            order by title, genre_title";
+
+    return selectAllDatabase($sql, []);
+}
+
+function getGenreFromBook ()  {
+    $sql = "select book_isdn from book_genre";
+
+    $books = [];
+
+    $data = selectAllDatabase($sql, []);
+
+    foreach ($data as $datum)  {
+        array_push($books, Book::get_book_from_isbn($datum["book_isdn"]));
+    }
+    return $books;
+}
+
 
 
 ?>

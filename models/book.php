@@ -83,6 +83,25 @@ class Book  {
         return $isbn;
     }
 
+    public static function get_book_from_isbn (int $isbn)  {
+        $sql = "select * from books where book_isdn = ?";
+
+        $datum = selectOneDatabase($sql, [$isbn]);
+        foreach ($datum as $data)  {
+            if (!empty($data[0]))  {
+                return new Book(
+                    $data["title"],
+                    $data['edition'],
+                    $data['year_published'],
+                    $data['synopsis'],
+                    $data['series']
+                );
+            } else  {
+                return;
+            }
+        }
+    }
+
     public static function get_all_book ()  {
         $books = [];
 

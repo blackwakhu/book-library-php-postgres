@@ -39,4 +39,9 @@ function selectOneDatabase ($sql, $dataItems)  {
     return $statement->fetchAll(\PDO::FETCH_ASSOC);
 }
 
+function select_one_element ($sql, $dataItems)  {
+    $statement = selectDatabase($sql, $dataItems);
+    return $statement->fetch(\PDO::FETCH_ASSOC);
+}
+
 ?>

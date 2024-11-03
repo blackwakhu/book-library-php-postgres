@@ -71,35 +71,9 @@ class Book  {
     }
 
     public static function getISBNfromDB (string $title, int $edition)  {
-        $sql = "select book_isdn from books where title = ? and edition = ?";
+        $sql = "select book_isdn from books where title = ? and edition = ? limit 1";
 
-        $data = selectOneDatabase($sql, [$title, $edition]);
-
-        $isbn = 0;
-        foreach ($data as $datum)  {
-            $isbn = $datum["book_isdn"];
-        }
-
-        return $isbn;
-    }
-
-    public static function get_book_from_isbn (int $isbn)  {
-        $sql = "select * from books where book_isdn = ?";
-
-        $datum = selectOneDatabase($sql, [$isbn]);
-        $book = null;
-        foreach ($datum as $data)  {
-            if (!empty($data[0]))  {
-                $book =  new Book(
-                    $data["title"],
-                    $data['edition'],
-                    $data['year_published'],
-                    $data['synopsis'],
-                    $data['series']
-                );
-            } 
-        }
-        return $book;
+        return select_one_element($sql, [$title, $edition])["book_isdn"];
     }
 
     public static function fetch_book_from_isbn (int $isbn)  {

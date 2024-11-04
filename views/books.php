@@ -8,7 +8,8 @@ $css = [
 ];
 
 $js = [
-    "../public/function/function.js"
+    "../public/function/function.js",
+    "../public/function/books.js"
 ];
 
 
@@ -22,7 +23,10 @@ $js = [
 
 
 <body>
-    <a href="../dashboard.php">Home</a>
+    <ul>
+        <li><a href="../dashboard.php">Home</a></li>
+        <li><a>All Books</a></li>
+    </ul>
 
     <?= getFunction($js) ?>
     

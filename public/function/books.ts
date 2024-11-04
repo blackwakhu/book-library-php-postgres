@@ -5,7 +5,10 @@ let book_div: HTMLDivElement | null = document.querySelector<HTMLDivElement>(".b
 let add_div: HTMLDivElement | null = document.querySelector<HTMLDivElement>(".add")
 
 const toggleHideElement = function (elem: HTMLDivElement, elements: HTMLDivElement[])  {
-    elem.style.display = "block"
+    elem.classList.remove("hiddenClass")
+    elements.forEach(function (x)  {
+        x.classList.add("hiddenClass")
+    })
 }
 
 add_book_sel?.addEventListener("click", function ()  {

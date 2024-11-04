@@ -4,7 +4,8 @@ require_once "../public/template/links.php";
 
 
 $css = [
-    "../public/style/style.css"
+    "../public/style/style.css",
+    "../public/style/books.css"
 ];
 
 $js = [
@@ -25,8 +26,17 @@ $js = [
 <body>
     <ul>
         <li><a href="../dashboard.php">Home</a></li>
-        <li><a>All Books</a></li>
+        <li><a>Books</a></li>
+        <li><a>Add Book</a></li>
     </ul>
+
+    <div class="books">
+        <h1>Books</h1>
+    </div>
+
+    <div class="add">
+        <h1>Add Books</h1>
+    </div>
 
     <?= getFunction($js) ?>
     

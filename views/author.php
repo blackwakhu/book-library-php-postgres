@@ -3,7 +3,15 @@
 require_once "../public/template/links.php";
 require_once "../models/author.php";
 
-$success = "";
+if (isset($_POST["submit-btn"]))  {
+    $nauthor = new Author(
+        $_POST["id"],
+        $_POST["fname"],
+        $_POST["lname"],
+        $_POST["bio"]
+    );
+    $nauthor->Save();
+}
 
 
 $css = [
@@ -26,6 +34,18 @@ $js = [
 
 <body>
     <a href="../dashboard.php">Home</a>
+
+    <form action="./author.php" method="post">
+        <label for="id">Author ID</label>
+        <input type="text" name="id" id="">
+        <label for="fname">fname</label>
+        <input type="text" name="fname" id="">
+        <label for="lname">lname</label>
+        <input type="text" name="lname" id="">
+        <label for="bio">Bio</label>
+        <textarea name="bio" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="submit" name="submit-btn">
+    </form>
 
     <?php
         $authors = Author::displayAll();

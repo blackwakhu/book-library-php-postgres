@@ -35,6 +35,21 @@ class Author  {
         return $this->fname." ".$this->lname;
     }
 
+    public function Save()  {
+        $sql = "insert into author 
+            (author_id, fname, lname, bio)
+            values (?, ?, ?, ?)
+        ";
+        $dataItems = [
+            $this->id,
+            $this->fname,
+            $this->lname,
+            $this->bio
+        ];
+
+        saveToTable($sql, $dataItems);
+    }
+
     public static function displayAll ()  {
         $sql = "select * from author order by fname";
         $data = selectAllDatabase($sql, []);
@@ -50,6 +65,7 @@ class Author  {
         }
         return $authors;
     }
+
 }
 
 ?>

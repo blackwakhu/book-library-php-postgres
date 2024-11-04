@@ -70,6 +70,8 @@ class Book  {
 
     }
 
+    public function getAuthors ()  {}
+
     public static function getISBNfromDB (string $title, int $edition)  {
         $sql = "select book_isdn from books where title = ? and edition = ? limit 1";
 

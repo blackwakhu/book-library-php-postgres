@@ -26,8 +26,8 @@ $js = [
 <body>
     <ul>
         <li><a href="../dashboard.php">Home</a></li>
-        <li><a>Books</a></li>
-        <li><a>Add Book</a></li>
+        <li><a id="book_sel">Books</a></li>
+        <li><a id="add_book_sel">Add Book</a></li>
     </ul>
 
     <div class="books">

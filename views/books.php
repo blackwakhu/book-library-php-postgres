@@ -42,6 +42,7 @@ $books = Book::get_all_book();
                             ?>
                             <div class="book_list">
                                 <h3><?= $book->getTitle() ?></h3>
+                                <
                             </div>
                             <?php
                         }

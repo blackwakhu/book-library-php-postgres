@@ -11,3 +11,15 @@
     margin-left: 9%;
     border-radius: 7px;
 }
+
+.book_genre_list  {
+    border-radius: 5px;
+    color: white;
+    background-color: slategray;
+    padding: 3px;
+}
+
+.book_genre_list_div  {
+    align-items: center;
+    text-align: center;
+}

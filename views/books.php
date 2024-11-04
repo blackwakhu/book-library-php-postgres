@@ -41,8 +41,23 @@ $books = Book::get_all_book();
                         foreach ($books as $book)  {
                             ?>
                             <div class="book_list">
-                                <h3><?= $book->getTitle() ?></h3>
-                                <
+                                <h3>Title: <?= $book->getTitle() ?></h3>
+                                <p>Edition: <?= $book->getEdition() ?></p>
+                                <?php 
+                                    $genres = $book->getGenres();
+                                    if (!empty($genres)) { ?>
+                                    <p>Genre:
+                                        <span class="book_genre_list_div">
+                                            <?php
+                                                foreach ($genres as $genre)  {
+                                                    ?>
+                                                        <span class="book_genre_list"><?= $genre->getTitle() ?></span>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </span>
+                                    </p>
+                                <?php } ?>
                             </div>
                             <?php
                         }

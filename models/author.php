@@ -31,6 +31,10 @@ class Author  {
         return $this->bio;
     }
 
+    public function getName ()  {
+        return $this->fname." ".$this->lname;
+    }
+
     public static function displayAll ()  {
         $sql = "select * from author order by fname";
         $data = selectAllDatabase($sql, []);
@@ -44,6 +48,7 @@ class Author  {
                 $datum["bio"]
             ));
         }
+        return $authors;
     }
 }
 

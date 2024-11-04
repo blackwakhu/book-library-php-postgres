@@ -33,6 +33,9 @@ if (isset($_POST['submit']))  {
 } elseif (isset($_POST["book_genre"]))  {
     header("Location: views/book_genre.php");
     exit();
+} elseif (isset($_POST["author"]))  {
+    header("Location: views/author.php");
+    exit();
 }
 
 $title = "DashBoard";
@@ -62,6 +65,7 @@ $js = [
     <form action="dashboard.php" method="post">
         <button type="submit" name="book">book</button>
         <button type="submit" name="genre">genre</button>
+        <button type="submit" name="author">author</button>
         <button type="submit" name="book_genre">book genre</button>
         <button type="submit" name="submit">sign out</button>
     </form>

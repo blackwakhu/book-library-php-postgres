@@ -1,7 +1,7 @@
 <?php 
 
 require_once "../public/template/links.php";
-
+require_once "../models/book.php";
 
 $css = [
     "../public/style/style.css",
@@ -12,6 +12,8 @@ $js = [
     "../public/function/function.js",
     "../public/function/books.js"
 ];
+
+$books = Book::get_all_book();
 
 
 ?>
@@ -32,6 +34,21 @@ $js = [
 
     <div class="books">
         <h1>Books</h1>
+        <div>
+            <div>
+                <?php
+                    if (!empty($books))  {
+                        foreach ($books as $book)  {
+                            ?>
+                            <div class="book_list">
+                                <h3><?= $book->getTitle() ?></h3>
+                            </div>
+                            <?php
+                        }
+                    }
+                ?>
+            </div>
+        </div>
     </div>
 
     <div class="add hiddenClass">

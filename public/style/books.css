@@ -1,5 +1,13 @@
 .hiddenClass  {
-    display: none !important;
-    color: yellow;
+    display: none;
+}
 
+.book_list  {
+    border: solid black 1px;
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 60%;
+    align-self: center;
+    margin-left: 9%;
+    border-radius: 7px;
 }

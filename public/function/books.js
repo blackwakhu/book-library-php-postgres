@@ -9,6 +9,8 @@ var toggleHideElement = function (elem, elements) {
     });
 };
 add_book_sel === null || add_book_sel === void 0 ? void 0 : add_book_sel.addEventListener("click", function () {
-    alert("clicked");
     toggleHideElement(add_div, [book_div]);
+});
+book_sel === null || book_sel === void 0 ? void 0 : book_sel.addEventListener("click", function () {
+    toggleHideElement(book_div, [add_div]);
 });

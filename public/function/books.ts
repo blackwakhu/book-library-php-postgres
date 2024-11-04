@@ -12,6 +12,9 @@ const toggleHideElement = function (elem: HTMLDivElement, elements: HTMLDivEleme
 }
 
 add_book_sel?.addEventListener("click", function ()  {
-    alert("clicked")
     toggleHideElement(add_div, [book_div])
+})
+
+book_sel?.addEventListener("click", function ()  {
+    toggleHideElement(book_div, [add_div])
 })

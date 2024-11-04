@@ -1,3 +1,5 @@
 .hiddenClass  {
-    display: none;
+    display: none !important;
+    color: yellow;
+
 }

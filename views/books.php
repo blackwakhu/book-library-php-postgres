@@ -26,15 +26,15 @@ $js = [
 <body>
     <ul>
         <li><a href="../dashboard.php">Home</a></li>
-        <li><a id="book_sel">Books</a></li>
-        <li><a id="add_book_sel">Add Book</a></li>
+        <li><a id="book_sel" href="#">Books</a></li>
+        <li><a id="add_book_sel" href="#">Add Book</a></li>
     </ul>
 
     <div class="books">
         <h1>Books</h1>
     </div>
 
-    <div class="add">
+    <div class="add hiddenClass">
         <h1>Add Books</h1>
     </div>
 

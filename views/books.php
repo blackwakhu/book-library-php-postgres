@@ -46,12 +46,12 @@ $books = Book::get_all_book();
                                 <?php 
                                     $authors = $book->getAuthors();
                                     if (!empty($authors)) { ?>
-                                    <p>Authors:
-                                        <span class="book_genre_list_div">
+                                    <p class="book_spe">Authors:
+                                        <span class="book_author_list_div">
                                             <?php
                                                 foreach ($authors as $author)  {
                                                     ?>
-                                                        <span class="book_genre_list"><?= $author->getName() ?></span>
+                                                        <span class="book_author_list"><?= $author->getName() ?></span>
                                                     <?php
                                                 }
                                             ?>
@@ -61,7 +61,7 @@ $books = Book::get_all_book();
                                 <?php 
                                     $genres = $book->getGenres();
                                     if (!empty($genres)) { ?>
-                                    <p>Genre:
+                                    <p class="book_spe">Genre:
                                         <span class="book_genre_list_div">
                                             <?php
                                                 foreach ($genres as $genre)  {

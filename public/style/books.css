@@ -19,7 +19,18 @@
     padding: 3px;
 }
 
-.book_genre_list_div  {
+.book_author_list  {
+    border-radius: 5px;
+    color: black;
+    background-color: lawngreen;
+    padding: 3px;
+}
+
+.book_genre_list_div, .book_author_list_div  {
     align-items: center;
     text-align: center;
+}
+
+.book_spe  {
+    margin-bottom: 10px;
 }

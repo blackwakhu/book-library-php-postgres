@@ -2,6 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT']."/database/database.php";
 require_once "../models/genre.php";
+require_once "../models/author.php";
 
 class Book  {
     private $book_title;
@@ -76,8 +77,8 @@ class Book  {
 
         $authors = [];
 
-        foreach ($authors as $author)  {
-            array_push($authors, Author::getAuthorFromID($data["author_id"]));
+        foreach ($data as $datum)  {
+            array_push($authors, Author::getAuthorFromID($datum["author_id"]));
         }
 
         return $authors;

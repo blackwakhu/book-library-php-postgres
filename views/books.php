@@ -57,7 +57,7 @@ $books = Book::get_all_book();
                                             ?>
                                         </span>
                                     </p>
-                                <?php } else {echo "no author";} ?>
+                                <?php } ?>
                                 <?php 
                                     $genres = $book->getGenres();
                                     if (!empty($genres)) { ?>

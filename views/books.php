@@ -44,6 +44,21 @@ $books = Book::get_all_book();
                                 <h3>Title: <?= $book->getTitle() ?></h3>
                                 <p>Edition: <?= $book->getEdition() ?></p>
                                 <?php 
+                                    $authors = $book->getAuthors();
+                                    if (!empty($authors)) { ?>
+                                    <p>Authors:
+                                        <span class="book_genre_list_div">
+                                            <?php
+                                                foreach ($authors as $author)  {
+                                                    ?>
+                                                        <span class="book_genre_list"><?= $author->getName() ?></span>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </span>
+                                    </p>
+                                <?php } else {echo "no author";} ?>
+                                <?php 
                                     $genres = $book->getGenres();
                                     if (!empty($genres)) { ?>
                                     <p>Genre:

@@ -70,7 +70,18 @@ class Book  {
 
     }
 
-    public function getAuthors ()  {}
+    public function getAuthors ()  {
+        $sql = "select author_id from book_author where book_isdn = ?";
+        $data = selectAllDatabase($sql, [$this->getISBN()]);
+
+        $authors = [];
+
+        foreach ($authors as $author)  {
+            array_push($authors, Author::getAuthorFromID($data["author_id"]));
+        }
+
+        return $authors;
+    }
 
     public static function getISBNfromDB (string $title, int $edition)  {
         $sql = "select book_isdn from books where title = ? and edition = ? limit 1";

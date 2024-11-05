@@ -50,6 +50,18 @@ class Author  {
         saveToTable($sql, $dataItems);
     }
 
+    public static function getAuthorFromID (int $id)  {
+        $sql = "select * from author where author_id = ?";
+        $author = select_one_element($sql, [$id]);
+
+        return new Author(
+            $author["author_id"],
+            $author["fname"],
+            $author["lname"],
+            $author["bio"]
+        );
+    }
+
     public static function displayAll ()  {
         $sql = "select * from author order by fname";
         $data = selectAllDatabase($sql, []);

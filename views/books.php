@@ -41,7 +41,11 @@ $books = Book::get_all_book();
                         foreach ($books as $book)  {
                             ?>
                             <div class="book_list">
-                                <h3>Title: <a href="./books/book.php"><?= $book->getTitle() ?></a></h3>
+                                <h3>Title: 
+                                    <a href="./books/book.php?book_isdn=<?= $book->getISBN() ?>">
+                                        <?= $book->getTitle() ?>
+                                    </a>
+                                </h3>
                                 <p>Edition: <?= $book->getEdition() ?></p>
                                 <?php 
                                     $authors = $book->getAuthors();

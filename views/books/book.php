@@ -1,6 +1,6 @@
 <?php 
 
-require "../../public/template/links.php";
+require_once "../../public/template/links.php";
 require_once "../../models/book.php";
 
 

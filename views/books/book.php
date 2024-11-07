@@ -1,15 +1,18 @@
 <?php 
 
-require "../public/template/links.php";
+require "../../public/template/links.php";
+require_once "../../models/book.php";
 
 
 $title = "Login";
 $css = [
-    "../public/style/style.css"
+    "../../public/style/style.css",
+    "../../public/style/books.css"
 ];
 
 $js = [
-    "../public/function/function.js"
+    "../../public/function/function.js",
+    "../../public/function/books.js"
 ]
 
 

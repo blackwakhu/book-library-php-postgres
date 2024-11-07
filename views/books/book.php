@@ -3,6 +3,12 @@
 require_once "../../public/template/links.php";
 require_once "../../models/book.php";
 
+if (empty($_GET["book_isdn"]))  {
+    header("Location: ../books.php");
+    exit();
+}
+
+$book;
 
 $title = "Login";
 $css = [
@@ -25,6 +31,7 @@ $js = [
 
 <body>
     
+    <h1><?= $_GET["book_isdn"] ?></h1>
 
     <?= getFunction($js) ?>
     

@@ -3,12 +3,15 @@
 require_once "../../public/template/links.php";
 require_once "../../models/book.php";
 
-if (empty($_GET["book_isdn"]))  {
+$book;
+
+if (!empty($_GET["book_isdn"]) && !(Book::test_book_isdn($_GET["book_isdn"])))  {
+    $book = Book::fetch_book_from_isbn($_GET["book_isdn"]);
+} else  {
     header("Location: ../books.php");
     exit();
 }
 
-$book;
 
 $title = "Login";
 $css = [

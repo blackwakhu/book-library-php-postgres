@@ -102,6 +102,13 @@ class Book  {
         );
     }
 
+    public static function test_book_isdn (int $isbn)  {
+        $sql = "select * from books where book_isdn = ? limit 1";
+        $data = select_one_element($sql, [$isbn]);
+
+        return empty($data);
+    }
+
     public static function get_all_book ()  {
         $books = [];
 

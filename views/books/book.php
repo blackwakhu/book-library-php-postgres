@@ -91,6 +91,9 @@ $js = [
         </tbody>
     </table>
 
+    <button>Add Authors</button>
+    <button>Add Genres</button>
+
     <?= getFunction($js) ?>
     
 </body>

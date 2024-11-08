@@ -38,61 +38,66 @@ $js = [
 <body>
     
     <h1>Books</h1>
-    <table>
-        <tbody>
-            <tr>
-                <th>Title: </th>
-                <td><?= $book-> getTitle() ?></td>
-            </tr>
-            <tr>
-                <th>Edition: </th>
-                <td><?= $book->getEdition() ?></td>
-            </tr>
-            <tr>
-                <th>Year Published: </th>
-                <td><?= $book->getYear() ?></td>
-            </tr>
-            <tr>
-                <th>Synopsis: </th>
-                <td><?= $book->getSynopsis() ?></td>
-            </tr>
-            <tr>
-                <th>Series: </th>
-                <td><?= $book->getSeries() ?></td>
-            </tr>
-            <tr>
-                <th>Author: </th>
-                <td>
+    
+    <div class="single_table_book_div">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Title: </th>
+                    <td><?= $book-> getTitle() ?></td>
+                </tr>
+                <tr>
+                    <th>Edition: </th>
+                    <td><?= $book->getEdition() ?></td>
+                </tr>
+                <tr>
+                    <th>Year Published: </th>
+                    <td><?= $book->getYear() ?></td>
+                </tr>
+                <tr>
+                    <th>Synopsis: </th>
+                    <td><?= $book->getSynopsis() ?></td>
+                </tr>
+                <tr>
+                    <th>Series: </th>
+                    <td><?= $book->getSeries() ?></td>
+                </tr>
+                <tr>
+                    <th>Author: </th>
+                    <td>
+                        <?php 
+                        if (empty($authors))  {
+                            echo "<p>There are no authors</p>";
+                        } else  {
+                            foreach ($authors as $author)  {
+                                echo $author->getName()."<br/>";
+                            }
+                        }
+                        ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Genres: </th>
+                    <td>
                     <?php 
-                    if (empty($authors))  {
-                        echo "<p>There are no authors</p>";
-                    } else  {
-                        foreach ($authors as $author)  {
-                            echo $author->getName()."<br/>";
+                        if (empty($genres))  {
+                            echo "<p>There are no genres</p>";
+                        } else  {
+                            foreach ($genres as $genre)  {
+                                echo $genre->getTitle()."<br/>";
+                            }
                         }
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <th>Genres: </th>
-                <td>
-                <?php 
-                    if (empty($genres))  {
-                        echo "<p>There are no genres</p>";
-                    } else  {
-                        foreach ($genres as $genre)  {
-                            echo $genre->getTitle()."<br/>";
-                        }
-                    }
-                    ?>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                        ?>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <button>Add Authors</button>
-    <button>Add Genres</button>
+    <div>
+        <button>Add Authors</button>
+        <button>Add Genres</button>
+    </div>
 
     <?= getFunction($js) ?>
     

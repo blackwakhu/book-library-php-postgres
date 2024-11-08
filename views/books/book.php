@@ -95,8 +95,12 @@ $js = [
     </div>
 
     <div>
-        <button>Add Authors</button>
-        <button>Add Genres</button>
+        <button id="single_book_add_author_btn">Add Authors</button>
+        <button id="single_book_add_genre_btn">Add Genres</button>
+    </div>
+    <div>
+        <div class="single_book_add_author hiddenClass"></div>
+        <div class="single_book_add genre hiddenClass"></div>
     </div>
 
     <?= getFunction($js) ?>

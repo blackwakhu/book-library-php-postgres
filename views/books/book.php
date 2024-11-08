@@ -16,7 +16,7 @@ $authors = $book->getAuthors();
 $genres = $book->getGenres();
 
 
-$title = "Login";
+$title = $book->getTitle();
 $css = [
     "../../public/style/style.css",
     "../../public/style/books.css"

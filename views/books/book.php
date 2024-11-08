@@ -12,6 +12,9 @@ if (!empty($_GET["book_isdn"]) && !(Book::test_book_isdn($_GET["book_isdn"])))  
     exit();
 }
 
+$authors;
+$genres;
+
 
 $title = "Login";
 $css = [
@@ -38,12 +41,28 @@ $js = [
     <table>
         <tbody>
             <tr>
-                <th>Title:</th>
+                <th>Title: </th>
                 <td><?= $book-> getTitle() ?></td>
             </tr>
             <tr>
-                <th>Edition:</th>
+                <th>Edition: </th>
                 <td><?= $book->getEdition() ?></td>
+            </tr>
+            <tr>
+                <th>Year Published: </th>
+                <td><?= $book->getYear() ?></td>
+            </tr>
+            <tr>
+                <th>Synopsis: </th>
+                <td><?= $book->getSynopsis() ?></td>
+            </tr>
+            <tr>
+                <th>Series: </th>
+                <td><?= $book->getSeries() ?></td>
+            </tr>
+            <tr>
+                <th>Author: </th>
+                <td></td>
             </tr>
         </tbody>
     </table>

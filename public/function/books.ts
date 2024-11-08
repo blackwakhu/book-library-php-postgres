@@ -5,6 +5,8 @@ let add_book_sel: HTMLAnchorElement | null = document.querySelector<HTMLAnchorEl
 let book_div: HTMLDivElement | null = document.querySelector<HTMLDivElement>(".books")
 let add_div: HTMLDivElement | null = document.querySelector<HTMLDivElement>(".add")
 
+let book_table_div: HTMLDivElement | null = document.querySelector<HTMLDivElement>(".single_table_book_div")
+
 const toggleHideElement = function (elem: HTMLDivElement, elements: HTMLDivElement[])  {
     elem.classList.remove("hiddenClass")
     elements.forEach(function (x)  {

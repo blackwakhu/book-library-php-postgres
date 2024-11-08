@@ -6,6 +6,8 @@ var add_book_sel = document.querySelector("#add_book_sel");
 var book_div = document.querySelector(".books");
 var add_div = document.querySelector(".add");
 var book_table_div = document.querySelector(".single_table_book_div");
+var author_book_div = document.querySelector(".single_book_add_author");
+var genre_book_div = document.querySelector(".single_book_add_genre");
 // button elements
 var author_book_btn = document.querySelector("#single_book_add_author_btn");
 var genre_book_btn = document.querySelector("#single_book_add_genre_btn");
@@ -22,4 +24,10 @@ add_book_sel === null || add_book_sel === void 0 ? void 0 : add_book_sel.addEven
 });
 book_sel === null || book_sel === void 0 ? void 0 : book_sel.addEventListener("click", function () {
     toggleHideElement(book_div, [add_div]);
+});
+author_book_btn === null || author_book_btn === void 0 ? void 0 : author_book_btn.addEventListener("click", function () {
+    toggleHideElement(author_book_div, [genre_book_div, book_table_div]);
+});
+genre_book_btn === null || genre_book_btn === void 0 ? void 0 : genre_book_btn.addEventListener("click", function () {
+    toggleHideElement(genre_book_div, [author_book_div, book_table_div]);
 });

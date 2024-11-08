@@ -99,8 +99,12 @@ $js = [
         <button id="single_book_add_genre_btn">Add Genres</button>
     </div>
     <div>
-        <div class="single_book_add_author hiddenClass"></div>
-        <div class="single_book_add genre hiddenClass"></div>
+        <div class="single_book_add_author hiddenClass">
+            <h4>Add author for <?= $book->getTitle() ?></h4>
+        </div>
+        <div class="single_book_add_genre hiddenClass">
+        <h4>Add Genre for <?= $book->getTitle() ?></h4>
+        </div>
     </div>
 
     <?= getFunction($js) ?>

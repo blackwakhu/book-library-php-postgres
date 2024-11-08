@@ -76,7 +76,17 @@ $js = [
             </tr>
             <tr>
                 <th>Genres: </th>
-                <td></td>
+                <td>
+                <?php 
+                    if (empty($genres))  {
+                        echo "<p>There are no genres</p>";
+                    } else  {
+                        foreach ($genres as $genre)  {
+                            echo $genre->getTitle()."<br/>";
+                        }
+                    }
+                    ?>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -34,7 +34,19 @@ $js = [
 
 <body>
     
-    <h1><?= $_GET["book_isdn"] ?></h1>
+    <h1>Books</h1>
+    <table>
+        <tbody>
+            <tr>
+                <th>Title:</th>
+                <td><?= $book-> getTitle() ?></td>
+            </tr>
+            <tr>
+                <th>Edition:</th>
+                <td><?= $book->getEdition() ?></td>
+            </tr>
+        </tbody>
+    </table>
 
     <?= getFunction($js) ?>
     

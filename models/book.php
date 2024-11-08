@@ -83,6 +83,31 @@ class Book  {
         return $authors;
     }
 
+    public function notAuthors ()  {
+        $authors = Author::displayAll();
+        $book_authors = $this->getAuthors();
+
+        $return_book = [];
+
+        $is_book = true;
+
+        foreach ($authors as $author)  {
+            foreach ($book_authors as $book_author)  {
+                if ($book_author->getName() == $author->getName())  {
+                    $is_book = false;
+                    break;
+                }
+            }
+            if ($is_book)  {
+                array_push($return_book, $author);
+                $is_book = true;
+            }
+        }
+
+        return $return_book;
+
+    }
+
     public static function getISBNfromDB (string $title, int $edition)  {
         $sql = "select book_isdn from books where title = ? and edition = ? limit 1";
 

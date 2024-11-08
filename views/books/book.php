@@ -14,6 +14,7 @@ if (!empty($_GET["book_isdn"]) && !(Book::test_book_isdn($_GET["book_isdn"])))  
 
 $authors = $book->getAuthors();
 $genres = $book->getGenres();
+$non_authors = $book->notAuthors();
 
 
 $title = $book->getTitle();
@@ -101,6 +102,32 @@ $js = [
     <div>
         <div class="single_book_add_author hiddenClass">
             <h4>Add author for <?= $book->getTitle() ?></h4>
+            <?php 
+                if (empty($authors))  {
+                    echo "<p>Add Author</p>";
+                } else  {
+                    echo "
+                        <p>Authors: <ul>";
+                    foreach ($authors as $author)  {
+                        echo "<li>".$author->getName()."</li>";
+                    }
+                    echo "
+                            </ul>
+                        </p>
+                    ";
+                }
+            ?>
+            <div>
+                <form action="" method="post">
+                    <?php
+                        foreach ($non_authors as $non_author)  {
+                            ?>
+                            <select name="" id=""><?= $non_author ?></select>
+                            <?php
+                        }
+                    ?>
+                </form>
+            </div>
         </div>
         <div class="single_book_add_genre hiddenClass">
         <h4>Add Genre for <?= $book->getTitle() ?></h4>

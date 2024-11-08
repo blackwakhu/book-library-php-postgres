@@ -12,8 +12,8 @@ if (!empty($_GET["book_isdn"]) && !(Book::test_book_isdn($_GET["book_isdn"])))  
     exit();
 }
 
-$authors;
-$genres;
+$authors = $book->getAuthors();
+$genres = $book->getGenres();
 
 
 $title = "Login";
@@ -62,6 +62,20 @@ $js = [
             </tr>
             <tr>
                 <th>Author: </th>
+                <td>
+                    <?php 
+                    if (empty($authors))  {
+                        echo "<p>There are no authors</p>";
+                    } else  {
+                        foreach ($authors as $author)  {
+                            echo $author->getName()."<br/>";
+                        }
+                    }
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <th>Genres: </th>
                 <td></td>
             </tr>
         </tbody>

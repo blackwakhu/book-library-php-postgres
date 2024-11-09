@@ -93,7 +93,7 @@ class Book  {
 
         foreach ($authors as $author)  {
             foreach ($book_authors as $book_author)  {
-                if ($book_author->getName() == $author->getName())  {
+                if ($book_author == $author)  {
                     $is_book = false;
                     break;
                 }

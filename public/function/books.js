@@ -28,10 +28,10 @@ book_sel === null || book_sel === void 0 ? void 0 : book_sel.addEventListener("c
     toggleHideElement(book_div, [add_div]);
 });
 author_book_btn === null || author_book_btn === void 0 ? void 0 : author_book_btn.addEventListener("click", function () {
-    toggleHideElement(author_book_div, [genre_book_div, book_table_div]);
+    toggleHideElement(author_book_div, [genre_book_div]);
 });
 genre_book_btn === null || genre_book_btn === void 0 ? void 0 : genre_book_btn.addEventListener("click", function () {
-    toggleHideElement(genre_book_div, [author_book_div, book_table_div]);
+    toggleHideElement(genre_book_div, [author_book_div]);
 });
 book_edit_btn === null || book_edit_btn === void 0 ? void 0 : book_edit_btn.addEventListener("click", function () {
     event === null || event === void 0 ? void 0 : event.preventDefault();

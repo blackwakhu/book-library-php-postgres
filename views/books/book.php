@@ -96,6 +96,7 @@ $js = [
     </div>
 
     <div>
+        <button id="single_book_edit_btn">Edit Book</button>
         <button id="single_book_add_author_btn">Add Authors</button>
         <button id="single_book_add_genre_btn">Add Genres</button>
     </div>
@@ -122,7 +123,8 @@ $js = [
             ?>
             
             <div>
-                <form action="" method="post">
+                <h4>Available Authors</h4>
+                <form action="./book.php" method="post">
                     <select name="" id="">
                     <?php
                         foreach ($non_authors as $non_author)  {
@@ -133,6 +135,13 @@ $js = [
                     ?>
                     </select>
                     <input type="button" name="add_curr_author" value="add" class="submit-book-single-edit-btn">
+                </form>
+            </div>
+
+            <div>
+                <h4>New Author</h4>
+                <form action="./book.php" method="post">
+                    
                 </form>
             </div>
         

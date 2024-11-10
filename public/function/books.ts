@@ -35,11 +35,11 @@ book_sel?.addEventListener("click", function ()  {
 });
 
 author_book_btn?.addEventListener("click", function ()  {
-    toggleHideElement(author_book_div, [genre_book_div, book_table_div]);
+    toggleHideElement(author_book_div, [genre_book_div]);
 });
 
 genre_book_btn?.addEventListener("click", function () {
-    toggleHideElement(genre_book_div, [author_book_div, book_table_div]);
+    toggleHideElement(genre_book_div, [author_book_div]);
 });
 
 book_edit_btn?.addEventListener("click", function ()  {

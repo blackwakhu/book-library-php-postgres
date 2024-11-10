@@ -119,13 +119,16 @@ $js = [
             ?>
             <div>
                 <form action="" method="post">
+                    <select name="" id="">
                     <?php
                         foreach ($non_authors as $non_author)  {
                             ?>
-                            <select name="" id=""><?= $non_author ?></select>
+                            <option value="<?= $non_author->getId() ?>"><?= $non_author->getName() ?></option>
                             <?php
                         }
                     ?>
+                    </select>
+                    <input type="submit" name="add_curr_author" value="add">
                 </form>
             </div>
         </div>

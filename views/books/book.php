@@ -16,10 +16,16 @@ $authors = $book->getAuthors();
 $genres = $book->getGenres();
 $non_authors = $book->notAuthors();
 
-$s = "hello";
-
-
-
+if (isset($_POST["newauthor"]))  {
+    $nauthor = new Author(
+        $_POST["author_id"],
+        $_POST["author_fname"],
+        $_POST["author_lname"] ,
+        $_POST["author_bio"]
+    );
+    $nauthor->Save();
+    $book->addAuthor($nauthor);
+}
 
 $title = $book->getTitle();
 $css = [
@@ -144,7 +150,7 @@ $js = [
 
             <div>
                 <h4>New Author</h4>
-                <form action="./book.php?book_isdn=<?= $book->getISDN() ?>" method="post">
+                <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
                     <label for="id">Author ID</label>
                     <input type="text" name="author_id" id="">
                     <label for="fname">First Name</label>
@@ -153,7 +159,7 @@ $js = [
                     <input type="text" name="author_lname" id="">
                     <label for="bio">Bio</label>
                     <textarea name="author_bio" id="" cols="30" rows="10"></textarea>
-                    <input type="submit" value="New Author">
+                    <input type="submit" value="New Author" name="newauthor">
                 </form>
             </div>
             <?= $s ?>

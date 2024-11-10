@@ -24,6 +24,7 @@ if (isset($_POST["newauthor-btn"]))  {
         $_POST["author_bio"]
     );
     $nauthor->Save();
+    $book->addAuthor($nauthor);
 }
 
 

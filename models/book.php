@@ -127,6 +127,21 @@ class Book  {
 
     }
 
+    public function addAuthor (Author $author)  {
+        
+        // binds an author to a single book
+
+        $sql = "insert into book_author (book_isdn, author_id)
+            values(?, ?);
+        ";
+
+        saveToTable($sql, [
+            $this->getISBN(),
+            $author->getId()
+        ]);
+
+    }
+
     // This are the static functions
 
     public static function getISBNfromDB (string $title, int $edition)  {

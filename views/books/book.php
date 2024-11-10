@@ -16,19 +16,9 @@ $authors = $book->getAuthors();
 $genres = $book->getGenres();
 $non_authors = $book->notAuthors();
 
-$s = "";
+$s = "hello";
 
-if (isset($_GET["newauthor"]))  {
-    $s = "clicked";
-    // $nauthor = new Author(
-    //     $_POST["author_id"],
-    //     $_POST["author_fname"],
-    //     $_POST["author_lname"],
-    //     $_POST["author_bio"]
-    // );
-    // $nauthor->Save();
-    // $book->addAuthor($nauthor);
-}
+
 
 
 $title = $book->getTitle();
@@ -154,16 +144,16 @@ $js = [
 
             <div>
                 <h4>New Author</h4>
-                <form action="./book.php" method="GET">
+                <form action="./book.php" method="post">
                     <label for="id">Author ID</label>
-                    <input type="text" name="author_id" id="" required>
-                    <label for="fname">fname</label>
-                    <input type="text" name="author_fname" id="" required>
-                    <label for="lname">lname</label>
-                    <input type="text" name="author_lname" id="" required>
+                    <input type="text" name="author_id" id="">
+                    <label for="fname">First Name</label>
+                    <input type="text" name="author_fname" id="">
+                    <label for="lname">Last Name</label>
+                    <input type="text" name="author_lname" id="">
                     <label for="bio">Bio</label>
-                    <textarea name="author_bio" id="" cols="30" rows="10" required></textarea>
-                    <input type="submit" name="newauthor" value="New Author">
+                    <textarea name="author_bio" id="" cols="30" rows="10"></textarea>
+                    <input type="submit" value="New Author">
                 </form>
             </div>
             <?= $s ?>

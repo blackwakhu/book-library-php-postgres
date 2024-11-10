@@ -85,7 +85,7 @@ class Book  {
 
     public function notAuthors ()  {
         $sql = "
-            select author.author_id author.fname, author.lname, author.bio 
+            select author.author_id, author.fname, author.lname, author.bio 
             from author where author.author_id not in (
                 select book_author.author_id from book_author 
                 where book_author.book_isdn = ?

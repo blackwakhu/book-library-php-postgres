@@ -10,6 +10,8 @@ class Book  {
     private $synopsis;
     private $series;
 
+    // constructors
+
     public function __construct (string $title, int $edition, int $year, string $synopsis, string $series)  {
         $this->book_title = $title;
         $this->book_edition = $edition;
@@ -17,6 +19,9 @@ class Book  {
         $this->synopsis = $synopsis;
         $this->series = $series;
     }
+
+
+    // getters
 
     public function getTitle ()  {
         return $this->book_title;
@@ -41,8 +46,14 @@ class Book  {
     public function getISBN ()  {
         return Book::getISBNfromDB($this->book_title, $this->book_edition);
     }
+    
+
+    // public functions
 
     public function Save ()  {
+
+        // saves all the details to the database
+
         $sql = "insert into books (title, edition, year_published, synopsis, series) 
                 values (?, ?, ?, ?, ?)";
         $dataItems = [
@@ -57,6 +68,9 @@ class Book  {
     }
 
     public function getGenres ()  {
+
+        // gets all the book genres
+
         $sql = "select genre_title from book_genre where book_isdn = ?";
         $data = selectAllDatabase($sql, [$this->getISBN()]);
 
@@ -71,6 +85,9 @@ class Book  {
     }
 
     public function getAuthors ()  {
+
+        // gets all the authors for the books
+
         $sql = "select author_id from book_author where book_isdn = ?";
         $data = selectAllDatabase($sql, [$this->getISBN()]);
 
@@ -84,6 +101,9 @@ class Book  {
     }
 
     public function notAuthors ()  {
+
+        // gets all the authors who did not write the boook but are in the database
+
         $sql = "
             select author.author_id, author.fname, author.lname, author.bio 
             from author where author.author_id not in (
@@ -107,13 +127,21 @@ class Book  {
 
     }
 
+    // This are the static functions
+
     public static function getISBNfromDB (string $title, int $edition)  {
+
+        // gets the book_isdn using the title and edition from the database
+
         $sql = "select book_isdn from books where title = ? and edition = ? limit 1";
 
         return select_one_element($sql, [$title, $edition])["book_isdn"];
     }
 
     public static function fetch_book_from_isbn (int $isbn)  {
+
+        // gets a single book using the isbn
+
         $sql = "select * from books where book_isdn = ? limit 1";
         $data = select_one_element($sql, [$isbn]);
 
@@ -127,6 +155,9 @@ class Book  {
     }
 
     public static function test_book_isdn (int $isbn)  {
+
+        // tests if the book exists
+
         $sql = "select * from books where book_isdn = ? limit 1";
         $data = select_one_element($sql, [$isbn]);
 
@@ -134,6 +165,9 @@ class Book  {
     }
 
     public static function get_all_book ()  {
+
+        // returns all the books in the database
+
         $books = [];
 
         $sql = "select * from books order by title, edition";
@@ -151,6 +185,7 @@ class Book  {
         
         return $books;
     }
+
 }
 
 class Genre  {

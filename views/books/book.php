@@ -16,7 +16,7 @@ $authors = $book->getAuthors();
 $genres = $book->getGenres();
 $non_authors = $book->notAuthors();
 
-if (isset($_POST["newauthor-btn"]))  {
+if (isset($_POST["newauthor"]))  {
     $nauthor = new Author(
         $_POST["author_id"],
         $_POST["author_fname"],
@@ -152,15 +152,15 @@ $js = [
             <div>
                 <h4>New Author</h4>
                 <form action="./book.php" method="post">
-                <label for="id">Author ID</label>
-                <input type="text" name="author_id" id="">
-                <label for="fname">fname</label>
-                <input type="text" name="author_fname" id="">
-                <label for="lname">lname</label>
-                <input type="text" name="author_lname" id="">
-                <label for="bio">Bio</label>
-                <textarea name="author_bio" id="" cols="30" rows="10"></textarea>
-                <input type="button" value="New Author" name="newauthor-btn">
+                    <label for="id">Author ID</label>
+                    <input type="text" name="author_id" id="" required>
+                    <label for="fname">fname</label>
+                    <input type="text" name="author_fname" id="" required>
+                    <label for="lname">lname</label>
+                    <input type="text" name="author_lname" id="" required>
+                    <label for="bio">Bio</label>
+                    <textarea name="author_bio" id="" cols="30" rows="10" required></textarea>
+                    <input type="submit" value="New Author" name="newauthor">
                 </form>
             </div>
         

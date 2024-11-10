@@ -84,27 +84,26 @@ class Book  {
     }
 
     public function notAuthors ()  {
-        $authors = Author::displayAll();
-        $book_authors = $this->getAuthors();
+        $sql = "
+            select author.author_id author.fname, author.lname, author.bio 
+            from author where author.author_id not in (
+                select book_author.author_id from book_author 
+                where book_author.book_isdn = ?
+            );
+        ";
+        $data = selectAllDatabase($sql, [$this->getISBN()]);
 
-        $return_book = [];
-
-        $is_book = true;
-
-        foreach ($authors as $author)  {
-            foreach ($book_authors as $book_author)  {
-                if ($book_author == $author)  {
-                    $is_book = false;
-                    break;
-                }
-            }
-            if ($is_book)  {
-                array_push($return_book, $author);
-                $is_book = true;
-            }
+        $authors = [];
+        
+        foreach ($data as $datum)  {
+            array_push($authors, new Author(
+                $datum["author_id"],
+                $datum["fname"],
+                $datum["lname"],
+                $datum["bio"]
+            ));
         }
-
-        return $return_book;
+        return $authors;
 
     }
 

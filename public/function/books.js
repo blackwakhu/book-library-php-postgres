@@ -11,6 +11,8 @@ var genre_book_div = document.querySelector(".single_book_add_genre");
 // button elements
 var author_book_btn = document.querySelector("#single_book_add_author_btn");
 var genre_book_btn = document.querySelector("#single_book_add_genre_btn");
+// input elements
+var book_edit_btn = document.querySelector(".submit-book-single-edit-btn");
 // functions
 var toggleHideElement = function (elem, elements) {
     elem.classList.remove("hiddenClass");
@@ -30,4 +32,7 @@ author_book_btn === null || author_book_btn === void 0 ? void 0 : author_book_bt
 });
 genre_book_btn === null || genre_book_btn === void 0 ? void 0 : genre_book_btn.addEventListener("click", function () {
     toggleHideElement(genre_book_div, [author_book_div, book_table_div]);
+});
+book_edit_btn === null || book_edit_btn === void 0 ? void 0 : book_edit_btn.addEventListener("click", function () {
+    event === null || event === void 0 ? void 0 : event.preventDefault();
 });

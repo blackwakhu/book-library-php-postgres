@@ -99,9 +99,12 @@ $js = [
         <button id="single_book_add_author_btn">Add Authors</button>
         <button id="single_book_add_genre_btn">Add Genres</button>
     </div>
+
     <div>
+
         <div class="single_book_add_author hiddenClass">
             <h4>Add author for <?= $book->getTitle() ?></h4>
+        
             <?php 
                 if (empty($authors))  {
                     echo "<p>Add Author</p>";
@@ -117,6 +120,7 @@ $js = [
                     ";
                 }
             ?>
+            
             <div>
                 <form action="" method="post">
                     <select name="" id="">
@@ -128,13 +132,16 @@ $js = [
                         }
                     ?>
                     </select>
-                    <input type="submit" name="add_curr_author" value="add">
+                    <input type="button" name="add_curr_author" value="add" class="submit-book-single-edit-btn">
                 </form>
             </div>
+        
         </div>
+        
         <div class="single_book_add_genre hiddenClass">
-        <h4>Add Genre for <?= $book->getTitle() ?></h4>
+            <h4>Add Genre for <?= $book->getTitle() ?></h4>
         </div>
+    
     </div>
 
     <?= getFunction($js) ?>

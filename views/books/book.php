@@ -144,7 +144,7 @@ $js = [
 
             <div>
                 <h4>New Author</h4>
-                <form action="./book.php" method="post">
+                <form action="./book.php?book_isdn=<?= $book->getISDN() ?>" method="post">
                     <label for="id">Author ID</label>
                     <input type="text" name="author_id" id="">
                     <label for="fname">First Name</label>

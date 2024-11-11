@@ -186,6 +186,22 @@ $js = [
         <div class="single_book_add_genre hiddenClass">
             
             <h4>Add Genre for <?= $book->getTitle() ?></h4>
+
+            <?php 
+                if (empty($genres))  {
+                    echo "<p>Add Genre</p>";
+                } else  {
+                    echo "
+                        <p>Genres: <ul>";
+                    foreach ($genres as $genre)  {
+                        echo "<li>".$genre->getTitle()."</li>";
+                    }
+                    echo "
+                            </ul>
+                        </p>
+                    ";
+                }
+            ?>
         
         </div>
     

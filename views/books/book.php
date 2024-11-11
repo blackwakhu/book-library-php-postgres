@@ -24,7 +24,11 @@ if (isset($_POST["newauthor"]))  {
         $_POST["author_bio"]
     );
     $nauthor->Save();
-    $book->addAuthor($nauthor);
+    save_book_author($book, $nauthor);
+}
+
+function save_book_author($book, $author)  {
+    $book->addAuthor($author);
     header("Location: book.php?book_isdn=".$book->getISBN());
     exit();
 }
@@ -138,7 +142,7 @@ $js = [
             
             <div>
                 <h4>Available Authors</h4>
-                <form action="./book.php" method="post">
+                <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
                     <select name="" id="">
                     <?php
                         foreach ($non_authors as $non_author)  {

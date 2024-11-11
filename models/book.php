@@ -3,7 +3,11 @@
 require_once $_SERVER['DOCUMENT_ROOT']."/database/database.php";
 
 
+// class Book for performing Book database functions
+
 class Book  {
+
+    // variables
     private $book_title;
     private $book_edition;
     private $book_year;
@@ -236,11 +240,18 @@ class Genre  {
 
 }
 
+
+// function manipulating author database
 class Author  {
+
+    // variables 
+
     private $id;
     private $fname;
     private $lname;
     private $bio;
+
+    // constructor
 
     public function __construct (int $id, string $fname, string $lname, string $bio)  {
         $this->id = $id;
@@ -248,6 +259,8 @@ class Author  {
         $this->lname = $lname;
         $this->bio = $bio;
     }
+
+    // getter functions
 
     public function getId ()  {
         return $this->id;
@@ -269,6 +282,12 @@ class Author  {
         return $this->fname." ".$this->lname;
     }
 
+
+    // functions
+
+
+    // function for saving an author
+
     public function Save()  {
         $sql = "insert into author 
             (author_id, fname, lname, bio)
@@ -284,6 +303,12 @@ class Author  {
         saveToTable($sql, $dataItems);
     }
 
+    
+    // static functions
+
+
+    // function for getting author from author_id
+
     public static function getAuthorFromID (int $id)  {
         $sql = "select * from author where author_id = ?";
         $author = select_one_element($sql, [$id]);
@@ -295,6 +320,8 @@ class Author  {
             $author["bio"]
         );
     }
+
+    // function to display all the authors
 
     public static function displayAll ()  {
         $sql = "select * from author order by fname";

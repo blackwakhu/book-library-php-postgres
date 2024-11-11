@@ -50,6 +50,7 @@ if (isset($_POST["addbook"]))  {
         <div>
             <div>
                 <?php
+                
                     if (!empty($books))  {
                         foreach ($books as $book)  {
                             ?>

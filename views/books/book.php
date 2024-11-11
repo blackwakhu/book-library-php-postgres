@@ -25,6 +25,8 @@ if (isset($_POST["newauthor"]))  {
     );
     $nauthor->Save();
     $book->addAuthor($nauthor);
+    header("Location: book.php?book_isdn=$book->getISBN()");
+    exit();
 }
 
 $title = $book->getTitle();

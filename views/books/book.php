@@ -49,6 +49,8 @@ $js = [
 <?= headerTemplate($title, $css) ?>
 
 <body>
+
+    <a href="../books.php">Back</a>
     
     <h1>Books</h1>
     

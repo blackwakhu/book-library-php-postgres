@@ -176,7 +176,7 @@ $js = [
                     <input type="text" name="author_lname" id="">
                     <label for="bio">Bio</label>
                     <textarea name="author_bio" id="" cols="30" rows="10"></textarea>
-                    <input type="submit" value="New Author" name="newauthor">
+                    <input type="submit" value="New Author" name="newauthor" class="book_edit_btn">
                 </form>
 
             </div>

@@ -15,7 +15,7 @@ let author_book_btn: HTMLButtonElement | null = document.querySelector<HTMLButto
 let genre_book_btn: HTMLButtonElement | null = document.querySelector<HTMLButtonElement>("#single_book_add_genre_btn");
 
 // input elements
-let book_edit_btn: HTMLInputElement | null = document.querySelector<HTMLInputElement>(".submit-book-single-edit-btn");
+let book_edit_btn: HTMLInputElement | null = document.querySelector<HTMLInputElement>(".book_edit_btn");
 
 // functions
 const toggleHideElement = function (elem: any, elements: any[])  {
@@ -42,6 +42,6 @@ genre_book_btn?.addEventListener("click", function () {
     toggleHideElement(genre_book_div, [author_book_div]);
 });
 
-book_edit_btn?.addEventListener("click", function ()  {
+book_edit_btn?.addEventListener("click", function (event)  {
     event?.preventDefault();
 })

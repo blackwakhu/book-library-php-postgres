@@ -15,6 +15,17 @@ $js = [
 
 $books = Book::get_all_book();
 
+if (isset($_POST["addbook"]))  {
+    $book = new Book (
+        $_POST["title"],
+        $_POST['edition'],
+        $_POST['year'],
+        $_POST['synopsis'],
+        $_POST['series']
+    );
+    $book->Save();
+}
+
 
 ?>
 
@@ -88,6 +99,21 @@ $books = Book::get_all_book();
 
     <div class="add hiddenClass">
         <h1>Add Books</h1>
+        <div>
+        <form action="./books.php" method="post">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="" required/>
+            <label for="edition">Edition</label>
+            <input type="number" name="edition" id="" required min="1"/>
+            <label for="year">Year of publication</label>
+            <input type="number" name="year" id="" min="1000"/>
+            <label for="synopsis">Synopsis</label>
+            <textarea name="synopsis" id="" cols="30" rows="10" required></textarea>
+            <label for="series">Series</label>
+            <input type="text" name="series" id="" required>
+            <input type="submit" value="submit" name="addbook"/>
+        </form>
+        </div>
     </div>
 
     <?= getFunction($js) ?>

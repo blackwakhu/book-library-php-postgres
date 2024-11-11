@@ -42,6 +42,6 @@ genre_book_btn?.addEventListener("click", function () {
     toggleHideElement(genre_book_div, [author_book_div]);
 });
 
-book_edit_btn?.addEventListener("click", function (event)  {
-    event?.preventDefault();
+book_edit_btn?.addEventListener("click", function ()  {
+    
 })

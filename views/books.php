@@ -24,6 +24,8 @@ if (isset($_POST["addbook"]))  {
         $_POST['series']
     );
     $book->Save();
+    header("Location: books.php");
+    exit();
 }
 
 

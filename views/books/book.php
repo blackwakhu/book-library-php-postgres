@@ -27,6 +27,12 @@ if (isset($_POST["newauthor"]))  {
     save_book_author($book, $nauthor);
 }
 
+$s = "Hi";
+
+if (isset($_POST["addauthor"]))  {
+    $s = "hello world ".$_POST["author"] ;
+}
+
 function save_book_author($book, $author)  {
     $book->addAuthor($author);
     header("Location: book.php?book_isdn=".$book->getISBN());
@@ -143,21 +149,25 @@ $js = [
             <div>
                 <h4>Available Authors</h4>
                 <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
-                    <select name="" id="">
-                    <?php
-                        foreach ($non_authors as $non_author)  {
-                            ?>
-                            <option value="<?= $non_author->getId() ?>"><?= $non_author->getName() ?></option>
-                            <?php
-                        }
-                    ?>
+                    <select name="author" id="">
+        
+                        <?php
+                            foreach ($non_authors as $non_author)  {
+                                ?>
+                                <option value="<?= $non_author->getId() ?>"><?= $non_author->getName() ?></option>
+                                <?php
+                            }
+                        ?>
+                        
                     </select>
-                    <input type="button" name="add_curr_author" value="add" class="submit-book-single-edit-btn">
+                    <input type="submit" value="Add" name="addauthor">
                 </form>
+                <?= $s ?>
             </div>
 
             <div>
                 <h4>New Author</h4>
+
                 <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
                     <label for="id">Author ID</label>
                     <input type="text" name="author_id" id="">
@@ -169,13 +179,15 @@ $js = [
                     <textarea name="author_bio" id="" cols="30" rows="10"></textarea>
                     <input type="submit" value="New Author" name="newauthor">
                 </form>
+
             </div>
-            <?= $s ?>
-        
+                    
         </div>
         
         <div class="single_book_add_genre hiddenClass">
+            
             <h4>Add Genre for <?= $book->getTitle() ?></h4>
+        
         </div>
     
     </div>

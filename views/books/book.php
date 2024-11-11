@@ -27,10 +27,9 @@ if (isset($_POST["newauthor"]))  {
     save_book_author($book, $nauthor);
 }
 
-$s = "Hi";
-
 if (isset($_POST["addauthor"]))  {
-    $s = "hello world ".$_POST["author"] ;
+    $nauthor = Author::getAuthorFromID($_POST["author"]);
+    save_book_author($book, $nauthor);
 }
 
 function save_book_author($book, $author)  {

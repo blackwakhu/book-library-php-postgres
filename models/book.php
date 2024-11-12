@@ -135,7 +135,22 @@ class Book  {
 
         // gets all genres in the database that are not part of the book
 
-        
+        $sql = "
+            select genre.genre_title from genre where genre.genre_title not in (
+                select genre.genre_title from book_genre
+                where book_genre.book_isdn = ?
+            )
+        ";
+
+        $data = selectAllDatabase($sql, [$this->getISBN()]);
+
+        $genres = [];
+
+        foreach ($data as $datume)  {
+            array_push($genres, new Genre($datum["genre_title"]));
+        }
+
+        return $genres;
 
     }
 

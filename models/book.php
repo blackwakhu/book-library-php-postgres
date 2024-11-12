@@ -146,7 +146,7 @@ class Book  {
 
         $genres = [];
 
-        foreach ($data as $datume)  {
+        foreach ($data as $datum)  {
             array_push($genres, new Genre($datum["genre_title"]));
         }
 

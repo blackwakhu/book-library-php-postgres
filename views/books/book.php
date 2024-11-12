@@ -15,6 +15,7 @@ if (!empty($_GET["book_isdn"]) && !(Book::test_book_isdn($_GET["book_isdn"])))  
 $authors = $book->getAuthors();
 $genres = $book->getGenres();
 $non_authors = $book->notAuthors();
+$non_genres = $book->nonGenre();
 
 if (isset($_POST["newauthor"]))  {
     $nauthor = new Author(
@@ -202,6 +203,18 @@ $js = [
                     ";
                 }
             ?>
+
+            <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
+                <?php
+                    if (!empty($non_genres))  {
+                        foreach ($non_genres as $non_genre)  {
+                    ?>
+                        <input type="checkbox" name="genres[]" id="" value="<?= $non_genre->getTitle() ?>"> <?= $non_genre->getTitle() ?> 
+                    <?php
+                        }
+                    }
+                ?>
+            </form>
         
         </div>
     

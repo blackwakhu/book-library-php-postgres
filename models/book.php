@@ -131,6 +131,14 @@ class Book  {
 
     }
 
+    public function nonGenre ()  {
+
+        // gets all genres in the database that are not part of the book
+
+        
+
+    }
+
     public function addAuthor (Author $author)  {
         
         // binds an author to a single book

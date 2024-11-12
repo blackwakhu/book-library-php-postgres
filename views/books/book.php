@@ -18,6 +18,7 @@ $non_authors = $book->notAuthors();
 $non_genres = $book->nonGenre();
 
 if (isset($_POST["newauthor"]))  {
+
     $nauthor = new Author(
         $_POST["author_id"],
         $_POST["author_fname"],
@@ -26,15 +27,31 @@ if (isset($_POST["newauthor"]))  {
     );
     $nauthor->Save();
     save_book_author($book, $nauthor);
-}
 
-if (isset($_POST["addauthor"]))  {
+} elseif (isset($_POST["addauthor"]))  {
+
     $nauthor = Author::getAuthorFromID($_POST["author"]);
     save_book_author($book, $nauthor);
+
+} elseif (isset($_POST["addgenre"]))  {
+
+    $selectedGenres = $_POST["genres"];
+    foreach ($selectedGenres as $selectedGenre)  {
+        $book->addGenre(new Genre($selectedGenre));
+    }
+
+    header("Location: book.php?book_isdn=".$book->getISBN());
+    exit();
 }
 
 function save_book_author($book, $author)  {
     $book->addAuthor($author);
+    header("Location: book.php?book_isdn=".$book->getISBN());
+    exit();
+}
+
+function save_genre_author ($book, $genre)  {
+    $book->addGenre($genre);
     header("Location: book.php?book_isdn=".$book->getISBN());
     exit();
 }
@@ -205,6 +222,7 @@ $js = [
             ?>
 
             <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
+                
                 <?php
                     if (!empty($non_genres))  {
                         foreach ($non_genres as $non_genre)  {
@@ -214,6 +232,9 @@ $js = [
                         }
                     }
                 ?>
+                <br>
+                <input type="submit" value="Add" name="addgenre">
+
             </form>
         
         </div>

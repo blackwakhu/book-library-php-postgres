@@ -136,9 +136,10 @@ class Book  {
         // gets all genres in the database that are not part of the book
 
         $sql = "
-            select genre.genre_title from genre where genre.genre_title not in (
-                select genre.genre_title from book_genre
-                where book_genre.book_isdn = ?
+            select genre.genre_title from genre 
+            left join book_genre on genre.genre_title = book_genre.genre_title 
+            where book_genre.book_isdn is null and genre.genre_title not in (
+                select genre_title from book_genre where book_isdn = ?
             )
         ";
 

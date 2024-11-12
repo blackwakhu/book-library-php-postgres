@@ -173,7 +173,7 @@ class Book  {
 
         // binds book to genre
 
-        $sql = "insert into book_genre (book_isdn, genre_title) (?, ?);";
+        $sql = "insert into book_genre (book_isdn, genre_title) values (?, ?);";
 
         saveToTable($sql, [
             $this->getISBN(),

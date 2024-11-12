@@ -169,6 +169,18 @@ class Book  {
 
     }
 
+    public function addGenre (Genre $genre)  {
+
+        // binds book to genre
+
+        $sql = "insert into book_genre (book_isdn, genre_title) (?, ?);";
+
+        saveToTable($sql, [
+            $this->getISBN(),
+            $genre->getTitle()
+        ]);
+    }
+
     // This are the static functions
 
     public static function getISBNfromDB (string $title, int $edition)  {

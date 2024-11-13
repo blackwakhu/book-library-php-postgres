@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "outDir": "",
+        "outDir": "public/function",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict":  
@@ -11,6 +11,12 @@
         "noImplicitAny": true,
         "skipLibCheck": true,  
 
-        "lib": ["es2015"] // Add "es2015" here
-    }
+        "lib": ["es2015", "dom"] // Add "es2015" here
+    },
+    "include": [
+        "./public/function/books.ts"
+    ],"exclude": [
+        "node_modules",
+        "dist"
+    ]
 }

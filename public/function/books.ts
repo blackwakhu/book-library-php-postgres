@@ -1,6 +1,6 @@
 // other parameters
 
-import { addAuthorToBook } from "./api";
+const api = require("./api");
 
 const url: string = "http://locahost:4000"
 
@@ -68,10 +68,10 @@ book_author_select?.addEventListener("change", function ()  {
         let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span")?.innerText ?? '';
         console.log("book isdn => ",book_isdn);
 
-        addAuthorToBook(Number(book_isdn), Number(selectedValue))
-            .then (data =>  {
+        api.addAuthorToBook(Number(book_isdn), Number(selectedValue))
+            .then ((data: any) =>  {
                 console.log('Data: ', data);
-            }).catch (error =>  {
+            }).catch ((error: any) =>  {
                 console.error('Error: ', error);
             });
         

@@ -1,15 +1,19 @@
-import axios from "axios";
+const axios = require('axios');
 
-export async function addAuthorToBook(isdn: number, authorID: number)  {
-    let apiurl = 'http://localhost:4000/api/book_author.php';
-    try  {
-        const response = await axios.post(apiurl, {
-            isdn, authorID
-        });
-        console.log(response.data);
-        return response.data;
-    }  catch (error)  {
-        console.error('Error: ', error);
-        throw error;
+module.exports = {
+  addAuthorToBook: async function (isdn: number, authorId: number): Promise<any> {
+    const apiUrl = 'http://localhost:4000/api/book_author.php';
+
+    try {
+      const response = await axios.post(apiUrl, {
+        isdn,
+        authorId
+      });
+
+      return response.data;
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
     }
-}
+  }
+};

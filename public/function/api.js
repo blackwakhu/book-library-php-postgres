@@ -35,36 +35,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.addAuthorToBook = addAuthorToBook;
-var axios_1 = __importDefault(require("axios"));
-function addAuthorToBook(isdn, authorID) {
-    return __awaiter(this, void 0, void 0, function () {
-        var apiurl, response, error_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    apiurl = 'http://localhost:4000/api/book_author.php';
-                    _a.label = 1;
-                case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios_1.default.post(apiurl, {
-                            isdn: isdn,
-                            authorID: authorID
-                        })];
-                case 2:
-                    response = _a.sent();
-                    console.log(response.data);
-                    return [2 /*return*/, response.data];
-                case 3:
-                    error_1 = _a.sent();
-                    console.error('Error: ', error_1);
-                    throw error_1;
-                case 4: return [2 /*return*/];
-            }
+var axios = require('axios');
+module.exports = {
+    addAuthorToBook: function (isdn, authorId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var apiUrl, response, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        apiUrl = 'http://localhost:4000/api/book_author.php';
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, axios.post(apiUrl, {
+                                isdn: isdn,
+                                authorId: authorId
+                            })];
+                    case 2:
+                        response = _a.sent();
+                        return [2 /*return*/, response.data];
+                    case 3:
+                        error_1 = _a.sent();
+                        console.error('Error:', error_1);
+                        throw error_1;
+                    case 4: return [2 /*return*/];
+                }
+            });
         });
-    });
-}
+    }
+};

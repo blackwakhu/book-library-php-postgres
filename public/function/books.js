@@ -1,7 +1,6 @@
 "use strict";
 // other parameters
-Object.defineProperty(exports, "__esModule", { value: true });
-var api_1 = require("./api");
+var api = require("./api");
 var url = "http://locahost:4000";
 // anchor elements
 var book_sel = document.querySelector("#book_sel");
@@ -51,7 +50,7 @@ book_author_select === null || book_author_select === void 0 ? void 0 : book_aut
         book_author_table_list.innerHTML = "";
         var book_isdn = (_b = (_a = document.querySelector("#book_isdn_span")) === null || _a === void 0 ? void 0 : _a.innerText) !== null && _b !== void 0 ? _b : '';
         console.log("book isdn => ", book_isdn);
-        (0, api_1.addAuthorToBook)(Number(book_isdn), Number(selectedValue))
+        api.addAuthorToBook(Number(book_isdn), Number(selectedValue))
             .then(function (data) {
             console.log('Data: ', data);
         }).catch(function (error) {

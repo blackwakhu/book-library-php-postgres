@@ -1,5 +1,7 @@
 // other parameters
 
+import { addAuthorToBook } from "./api";
+
 const url: string = "http://locahost:4000"
 
 // anchor elements
@@ -34,32 +36,6 @@ const toggleHideElement = function (elem: any, elements: any[])  {
     });
 };
 
-async function addAuthorToBook(isdn: any, authorId: any)  {
-    let apiurl = `${url}/api/book_author.php`;
-    try {
-        const response = await fetch(apiurl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                book_isdn: isdn,
-                author_id: authorId
-            })
-        });
-        if (!response.ok)  {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data =  await response.json();
-        console.log(data);
-        return data;
-    } catch (error)  {
-        console.error('Error: ', error);
-        throw error;
-    }
-}
-
 // event listeners
 add_book_sel?.addEventListener("click", function ()  {
     toggleHideElement(add_div, [book_div]);
@@ -91,12 +67,13 @@ book_author_select?.addEventListener("change", function ()  {
     
         let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span")?.innerText ?? '';
         console.log("book isdn => ",book_isdn);
-        
-        addAuthorToBook(book_isdn, selectedValue)
+
+        addAuthorToBook(book_isdn, Number(selectedValue))
             .then (data =>  {
                 console.log('Data: ', data);
             }).catch (error =>  {
-                console.error('Error: ',error);
-            })
+                console.error('Error: ', error);
+            });
+        
     }
 });

@@ -113,15 +113,17 @@ $js = [
                 <tr>
                     <th>Author: </th>
                     <td>
-                        <?php 
-                        if (empty($authors))  {
-                            echo "<p>There are no authors</p>";
-                        } else  {
-                            foreach ($authors as $author)  {
-                                echo $author->getName()."<br/>";
-                            }
-                        }
-                        ?>
+                        <span id="book_author_table_list">
+                            <?php 
+                                if (empty($authors))  {
+                                    echo "<p>There are no authors</p>";
+                                } else  {
+                                    foreach ($authors as $author)  {
+                                        echo $author->getName()."<br/>";
+                                    }
+                                }
+                            ?>
+                        </span>
                     </td>
                 </tr>
                 <tr>
@@ -173,7 +175,7 @@ $js = [
                 <h4>Available Authors</h4>
                 <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
                     <select name="author" id="book_author_select">
-        
+                        <option disabled selected>Please select an option</option>
                         <?php
                             foreach ($non_authors as $non_author)  {
                                 ?>

@@ -16,7 +16,12 @@ let genre_book_btn: HTMLButtonElement | null = document.querySelector<HTMLButton
 
 // input elements
 let book_edit_btn: HTMLInputElement | null = document.querySelector<HTMLInputElement>(".book_edit_btn");
+
+// select elements
 let book_author_select: HTMLSelectElement | null = document.querySelector<HTMLSelectElement>("#book_author_select");
+
+// span elements
+let book_author_table_list: HTMLSpanElement | null = document.querySelector<HTMLSpanElement>("#book_author_table_list");
 
 // functions
 const toggleHideElement = function (elem: any, elements: any[])  {
@@ -50,4 +55,5 @@ book_edit_btn?.addEventListener("click", function ()  {
 book_author_select?.addEventListener("change", function ()  {
     let selectedValue = book_author_select?.value;
     console.log(selectedValue);
+    book_author_table_list.innerHTML = "";
 });

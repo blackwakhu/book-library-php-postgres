@@ -91,6 +91,10 @@ $js = [
         <table>
             <tbody>
                 <tr>
+                    <th>Book ISBN</th>
+                    <td><span id="book_isdn_span"><?= $book->getISBN() ?></span></td>
+                </tr>
+                <tr>
                     <th>Title: </th>
                     <td><?= $book-> getTitle() ?></td>
                 </tr>

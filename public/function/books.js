@@ -72,7 +72,7 @@ function addAuthorToBook(isdn, authorId) {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 4, , 5]);
-                    return [4 /*yield*/, fetch(url, {
+                    return [4 /*yield*/, fetch(apiurl, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -91,11 +91,11 @@ function addAuthorToBook(isdn, authorId) {
                 case 3:
                     data = _a.sent();
                     console.log(data);
-                    return [3 /*break*/, 5];
+                    return [2 /*return*/, data];
                 case 4:
                     error_1 = _a.sent();
                     console.error('Error: ', error_1);
-                    return [3 /*break*/, 5];
+                    throw error_1;
                 case 5: return [2 /*return*/];
             }
         });
@@ -120,4 +120,7 @@ book_author_select === null || book_author_select === void 0 ? void 0 : book_aut
     var selectedValue = book_author_select === null || book_author_select === void 0 ? void 0 : book_author_select.value;
     console.log(selectedValue);
     book_author_table_list.innerHTML = "";
+    var book_isdn = document.querySelector("#book_isdn_span").innerText;
+    console.log("book isdn => ", book_isdn);
+    addAuthorToBook(book_isdn, selectedValue);
 });

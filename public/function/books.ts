@@ -39,7 +39,7 @@ const toggleHideElement = function (elem: any, elements: any[])  {
 async function addAuthorToBook(isdn, authorId)  {
     let apiurl = `${url}/api/book_author.php`;
     try {
-        const response = await fetch(url, {
+        const response = await fetch(apiurl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -55,8 +55,10 @@ async function addAuthorToBook(isdn, authorId)  {
 
         const data =  await response.json();
         console.log(data);
+        return data;
     } catch (error)  {
         console.error('Error: ', error);
+        throw error;
     }
 }
 
@@ -85,4 +87,7 @@ book_author_select?.addEventListener("change", function ()  {
     let selectedValue = book_author_select?.value;
     console.log(selectedValue);
     book_author_table_list.innerHTML = "";
+    let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span").innerText
+    console.log("book isdn => ",book_isdn);
+    addAuthorToBook(book_isdn, selectedValue);
 });

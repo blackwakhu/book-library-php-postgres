@@ -172,7 +172,7 @@ $js = [
             <div>
                 <h4>Available Authors</h4>
                 <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
-                    <select name="author" id="">
+                    <select name="author" id="book_author_select">
         
                         <?php
                             foreach ($non_authors as $non_author)  {
@@ -183,9 +183,8 @@ $js = [
                         ?>
                         
                     </select>
-                    <input type="submit" value="Add" name="addauthor">
-                </form>
-                <?= $s ?>
+                    <!-- <input type="submit" value="Add" name="addauthor"> -->
+                </form> 
             </div>
 
             <div>

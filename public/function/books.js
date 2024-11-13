@@ -13,6 +13,7 @@ var author_book_btn = document.querySelector("#single_book_add_author_btn");
 var genre_book_btn = document.querySelector("#single_book_add_genre_btn");
 // input elements
 var book_edit_btn = document.querySelector(".book_edit_btn");
+var book_author_select = document.querySelector("#book_author_select");
 // functions
 var toggleHideElement = function (elem, elements) {
     elem.classList.remove("hiddenClass");

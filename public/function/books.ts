@@ -16,6 +16,7 @@ let genre_book_btn: HTMLButtonElement | null = document.querySelector<HTMLButton
 
 // input elements
 let book_edit_btn: HTMLInputElement | null = document.querySelector<HTMLInputElement>(".book_edit_btn");
+let book_author_select: HTMLSelectElement | null = document.querySelector<HTMLSelectElement>("#book_author_select");
 
 // functions
 const toggleHideElement = function (elem: any, elements: any[])  {

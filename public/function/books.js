@@ -119,26 +119,28 @@ book_edit_btn === null || book_edit_btn === void 0 ? void 0 : book_edit_btn.addE
 book_author_select === null || book_author_select === void 0 ? void 0 : book_author_select.addEventListener("change", function () {
     return __awaiter(this, void 0, void 0, function () {
         var selectedValue, book_isdn, authors_book, error_2;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var _a, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
                 case 0:
                     selectedValue = book_author_select === null || book_author_select === void 0 ? void 0 : book_author_select.value;
                     console.log(selectedValue);
+                    if (!book_author_table_list) return [3 /*break*/, 4];
                     book_author_table_list.innerHTML = "";
-                    book_isdn = document.querySelector("#book_isdn_span").innerText;
+                    book_isdn = (_b = (_a = document.querySelector("#book_isdn_span")) === null || _a === void 0 ? void 0 : _a.innerText) !== null && _b !== void 0 ? _b : '';
                     console.log("book isdn => ", book_isdn);
-                    _a.label = 1;
+                    _c.label = 1;
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
+                    _c.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, addAuthorToBook(book_isdn, selectedValue)];
                 case 2:
-                    authors_book = _a.sent();
+                    authors_book = _c.sent();
                     // Update book_author_table_list with authors_book data
                     // For example, if authors_book is an array of author names:
                     book_author_table_list.innerHTML = authors_book.map(function (author) { return "<li>".concat(author, "</li>"); }).join('');
                     return [3 /*break*/, 4];
                 case 3:
-                    error_2 = _a.sent();
+                    error_2 = _c.sent();
                     console.error('Error adding author:', error_2);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];

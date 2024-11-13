@@ -36,7 +36,7 @@ const toggleHideElement = function (elem: any, elements: any[])  {
     });
 };
 
-async function addAuthorToBook(isdn, authorId)  {
+async function addAuthorToBook(isdn: any, authorId: any)  {
     let apiurl = `${url}/api/book_author.php`;
     try {
         const response = await fetch(apiurl, {
@@ -86,16 +86,18 @@ book_edit_btn?.addEventListener("click", function ()  {
 book_author_select?.addEventListener("change", async function ()  {
     let selectedValue = book_author_select?.value;
     console.log(selectedValue);
-    book_author_table_list.innerHTML = "";
-    let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span").innerText
-    console.log("book isdn => ",book_isdn);
-    try {
-        const authors_book = await addAuthorToBook(book_isdn, selectedValue);
-        // Update book_author_table_list with authors_book data
-        // For example, if authors_book is an array of author names:
-        book_author_table_list.innerHTML = authors_book.map(author => `<li>${author}</li>`).join('');
-    } catch (error) {
-        console.error('Error adding author:', error);
-        // Handle error, e.g., display an error message to the user
+    if (book_author_table_list)  {
+        book_author_table_list.innerHTML = "";
+        let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span")?.innerText ?? '';
+        console.log("book isdn => ",book_isdn);
+        try {
+            const authors_book: string[] = await addAuthorToBook(book_isdn, selectedValue);
+            // Update book_author_table_list with authors_book data
+            // For example, if authors_book is an array of author names:
+            book_author_table_list.innerHTML = authors_book.map(author => `<li>${author}</li>`).join('');
+        } catch (error) {
+            console.error('Error adding author:', error);
+            // Handle error, e.g., display an error message to the user
+        }
     }
 });

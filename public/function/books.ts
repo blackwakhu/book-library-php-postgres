@@ -1,6 +1,6 @@
 // other parameters
 
-const api = require("./api");
+import axios from "axios";
 
 const url: string = "http://locahost:4000"
 
@@ -36,6 +36,22 @@ const toggleHideElement = function (elem: any, elements: any[])  {
     });
 };
 
+async function addAuthorToBook(isdn: number, authorId: number): Promise<any> {
+    const apiUrl = 'http://localhost:4000/api/book_author.php';
+
+    try {
+      const response = await axios.post(apiUrl, {
+        isdn,
+        authorId
+      });
+
+      return response.data;
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
+    }
+  }
+
 // event listeners
 add_book_sel?.addEventListener("click", function ()  {
     toggleHideElement(add_div, [book_div]);
@@ -68,7 +84,7 @@ book_author_select?.addEventListener("change", function ()  {
         let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span")?.innerText ?? '';
         console.log("book isdn => ",book_isdn);
 
-        api.addAuthorToBook(Number(book_isdn), Number(selectedValue))
+        addAuthorToBook(Number(book_isdn), Number(selectedValue))
             .then ((data: any) =>  {
                 console.log('Data: ', data);
             }).catch ((error: any) =>  {

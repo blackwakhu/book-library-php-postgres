@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "es6",
+        "module": "esnext",
         "outDir": "public/function",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
@@ -15,8 +15,7 @@
     },
     "include": [
         "./public/function/books.ts",
-        "./public/function/function.ts",
-        "./public/function/api.ts"
+        "./public/function/function.ts"
     ],"exclude": [
         "node_modules",
         "dist"

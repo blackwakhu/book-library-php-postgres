@@ -1,6 +1,6 @@
 // other parameters
 
-import axios from "axios";
+import axios from "../../node_modules/axios/index";
 
 const url: string = "http://locahost:4000"
 

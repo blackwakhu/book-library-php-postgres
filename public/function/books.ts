@@ -1,7 +1,5 @@
 // other parameters
 
-import axios from "axios";
-
 const url: string = "http://locahost:4000"
 
 // anchor elements

@@ -89,5 +89,5 @@ book_author_select?.addEventListener("change", function ()  {
     book_author_table_list.innerHTML = "";
     let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span").innerText
     console.log("book isdn => ",book_isdn);
-    addAuthorToBook(book_isdn, selectedValue);
+    let authors_book = addAuthorToBook(book_isdn, selectedValue);
 });

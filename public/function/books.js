@@ -122,5 +122,5 @@ book_author_select === null || book_author_select === void 0 ? void 0 : book_aut
     book_author_table_list.innerHTML = "";
     var book_isdn = document.querySelector("#book_isdn_span").innerText;
     console.log("book isdn => ", book_isdn);
-    addAuthorToBook(book_isdn, selectedValue);
+    var authors_book = addAuthorToBook(book_isdn, selectedValue);
 });

@@ -1,6 +1,7 @@
+"use strict";
 // other parameters
 
-import axios from "../../node_modules/axios/index";
+const axios = require("axios");
 
 const url: string = "http://locahost:4000"
 

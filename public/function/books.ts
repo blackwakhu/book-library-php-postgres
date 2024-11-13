@@ -1,4 +1,9 @@
 "use strict";
+
+// other parameters
+
+const url: string = "http://locahost:4000"
+
 // anchor elements
 let book_sel: HTMLAnchorElement | null = document.querySelector<HTMLAnchorElement>("#book_sel");
 let add_book_sel: HTMLAnchorElement | null = document.querySelector<HTMLAnchorElement>("#add_book_sel");
@@ -30,6 +35,30 @@ const toggleHideElement = function (elem: any, elements: any[])  {
         x.classList.add("hiddenClass");
     });
 };
+
+async function addAuthorToBook(isdn, authorId)  {
+    let apiurl = `${url}/api/book_author.php`;
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                book_isdn: isdn,
+                author_id: authorId
+            })
+        });
+        if (!response.ok)  {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data =  await response.json();
+        console.log(data);
+    } catch (error)  {
+        console.error('Error: ', error);
+    }
+}
 
 // event listeners
 add_book_sel?.addEventListener("click", function ()  {

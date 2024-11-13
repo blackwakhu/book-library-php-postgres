@@ -1,9 +1,7 @@
 "use strict";
 // other parameters
 
-const axios = require("axios");
-
-const url: string = "http://locahost:4000"
+import {addAuthorToBook} from "./api";
 
 // anchor elements
 let book_sel: HTMLAnchorElement | null = document.querySelector<HTMLAnchorElement>("#book_sel");
@@ -37,21 +35,7 @@ const toggleHideElement = function (elem: any, elements: any[])  {
     });
 };
 
-async function addAuthorToBook(isdn: number, authorId: number): Promise<any> {
-    const apiUrl = 'http://localhost:4000/api/book_author.php';
 
-    try {
-      const response = await axios.post(apiUrl, {
-        isdn,
-        authorId
-      });
-
-      return response.data;
-    } catch (error) {
-      console.error('Error:', error);
-      throw error;
-    }
-  }
 
 // event listeners
 add_book_sel?.addEventListener("click", function ()  {

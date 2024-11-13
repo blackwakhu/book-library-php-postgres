@@ -1,16 +1,6 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 // other parameters
-const axios = require("axios");
-const url = "http://locahost:4000";
+import { addAuthorToBook } from "./api";
 // anchor elements
 let book_sel = document.querySelector("#book_sel");
 let add_book_sel = document.querySelector("#add_book_sel");
@@ -36,22 +26,6 @@ const toggleHideElement = function (elem, elements) {
         x.classList.add("hiddenClass");
     });
 };
-function addAuthorToBook(isdn, authorId) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const apiUrl = 'http://localhost:4000/api/book_author.php';
-        try {
-            const response = yield axios.post(apiUrl, {
-                isdn,
-                authorId
-            });
-            return response.data;
-        }
-        catch (error) {
-            console.error('Error:', error);
-            throw error;
-        }
-    });
-}
 // event listeners
 add_book_sel === null || add_book_sel === void 0 ? void 0 : add_book_sel.addEventListener("click", function () {
     toggleHideElement(add_div, [book_div]);

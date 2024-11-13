@@ -42,6 +42,12 @@ if (isset($_POST["newauthor"]))  {
 
     header("Location: book.php?book_isdn=".$book->getISBN());
     exit();
+} elseif (isset($_POST["newgenre"]))  {
+
+    $ngenre = new Genre($_POST["genre_title"]);
+    $ngenre->Save();
+    save_book_genre($book, $ngenre);
+
 }
 
 function save_book_author($book, $author)  {
@@ -50,7 +56,7 @@ function save_book_author($book, $author)  {
     exit();
 }
 
-function save_genre_author ($book, $genre)  {
+function save_book_genre ($book, $genre)  {
     $book->addGenre($genre);
     header("Location: book.php?book_isdn=".$book->getISBN());
     exit();
@@ -235,6 +241,12 @@ $js = [
                 <br>
                 <input type="submit" value="Add" name="addgenre">
 
+            </form>
+
+            <form action="./book.php?book_isdn=<?= $book->getISBN() ?>" method="post">
+                <label for="genre_title">Genre</label>
+                <input type="text" name="genre_title" id="genre_title" required>
+                <input type="submit" value="newgenre" name="newgenre">
             </form>
         
         </div>

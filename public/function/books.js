@@ -36,3 +36,7 @@ genre_book_btn === null || genre_book_btn === void 0 ? void 0 : genre_book_btn.a
 });
 book_edit_btn === null || book_edit_btn === void 0 ? void 0 : book_edit_btn.addEventListener("click", function () {
 });
+book_author_select === null || book_author_select === void 0 ? void 0 : book_author_select.addEventListener("change", function () {
+    var selectedValue = book_author_select === null || book_author_select === void 0 ? void 0 : book_author_select.value;
+    console.log(selectedValue);
+});

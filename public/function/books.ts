@@ -46,3 +46,8 @@ genre_book_btn?.addEventListener("click", function () {
 book_edit_btn?.addEventListener("click", function ()  {
     
 })
+
+book_author_select?.addEventListener("change", function ()  {
+    let selectedValue = book_author_select?.value;
+    console.log(selectedValue);
+});

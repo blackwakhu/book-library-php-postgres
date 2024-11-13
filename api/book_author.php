@@ -20,4 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")  {
     echo json_encode($book_authors);
 }
 
+
+if ($_SERVER["REQUEST_METHOD"] === "GET")  {
+    echo json_encode(["hello world"]);
+}
+
 ?>

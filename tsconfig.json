@@ -15,7 +15,8 @@
     },
     "include": [
         "./public/function/books.ts",
-        "./public/function/function.ts"
+        "./public/function/function.ts",
+        "./public/function/api.ts"
     ],"exclude": [
         "node_modules",
         "dist"

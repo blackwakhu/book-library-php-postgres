@@ -68,7 +68,7 @@ book_author_select?.addEventListener("change", function ()  {
         let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span")?.innerText ?? '';
         console.log("book isdn => ",book_isdn);
 
-        addAuthorToBook(book_isdn, Number(selectedValue))
+        addAuthorToBook(Number(book_isdn), Number(selectedValue))
             .then (data =>  {
                 console.log('Data: ', data);
             }).catch (error =>  {

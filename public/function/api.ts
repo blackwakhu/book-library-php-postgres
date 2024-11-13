@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function addAuthorToBook(isdn: string, authorID: number)  {
+export async function addAuthorToBook(isdn: number, authorID: number)  {
     let apiurl = 'http://localhost:4000/api/book_author.php';
     try  {
         const response = await axios.post(apiurl, {

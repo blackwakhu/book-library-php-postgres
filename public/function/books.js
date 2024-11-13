@@ -51,7 +51,7 @@ book_author_select === null || book_author_select === void 0 ? void 0 : book_aut
         book_author_table_list.innerHTML = "";
         var book_isdn = (_b = (_a = document.querySelector("#book_isdn_span")) === null || _a === void 0 ? void 0 : _a.innerText) !== null && _b !== void 0 ? _b : '';
         console.log("book isdn => ", book_isdn);
-        (0, api_1.addAuthorToBook)(book_isdn, Number(selectedValue))
+        (0, api_1.addAuthorToBook)(Number(book_isdn), Number(selectedValue))
             .then(function (data) {
             console.log('Data: ', data);
         }).catch(function (error) {

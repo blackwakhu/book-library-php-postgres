@@ -1,5 +1,3 @@
-import {addAuthorToBook} from "./api";
-
 // anchor elements
 let book_sel: HTMLAnchorElement | null = document.querySelector<HTMLAnchorElement>("#book_sel");
 let add_book_sel: HTMLAnchorElement | null = document.querySelector<HTMLAnchorElement>("#add_book_sel");
@@ -54,24 +52,3 @@ genre_book_btn?.addEventListener("click", function () {
 book_edit_btn?.addEventListener("click", function ()  {
     
 })
-
-book_author_select?.addEventListener("change", function ()  {
-    let selectedValue = book_author_select?.value;
-    console.log(selectedValue);
-    
-    if (book_author_table_list)  {
-    
-        book_author_table_list.innerHTML = "";
-    
-        let book_isdn = document.querySelector<HTMLSpanElement>("#book_isdn_span")?.innerText ?? '';
-        console.log("book isdn => ",book_isdn);
-
-        addAuthorToBook(Number(book_isdn), Number(selectedValue))
-            .then ((data: any) =>  {
-                console.log('Data: ', data);
-            }).catch ((error: any) =>  {
-                console.error('Error: ', error);
-            });
-        
-    }
-});

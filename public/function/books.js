@@ -1,4 +1,4 @@
-import { addAuthorToBook } from "./api";
+"use strict";
 // anchor elements
 let book_sel = document.querySelector("#book_sel");
 let add_book_sel = document.querySelector("#add_book_sel");
@@ -38,20 +38,4 @@ genre_book_btn === null || genre_book_btn === void 0 ? void 0 : genre_book_btn.a
     toggleHideElement(genre_book_div, [author_book_div]);
 });
 book_edit_btn === null || book_edit_btn === void 0 ? void 0 : book_edit_btn.addEventListener("click", function () {
-});
-book_author_select === null || book_author_select === void 0 ? void 0 : book_author_select.addEventListener("change", function () {
-    var _a, _b;
-    let selectedValue = book_author_select === null || book_author_select === void 0 ? void 0 : book_author_select.value;
-    console.log(selectedValue);
-    if (book_author_table_list) {
-        book_author_table_list.innerHTML = "";
-        let book_isdn = (_b = (_a = document.querySelector("#book_isdn_span")) === null || _a === void 0 ? void 0 : _a.innerText) !== null && _b !== void 0 ? _b : '';
-        console.log("book isdn => ", book_isdn);
-        addAuthorToBook(Number(book_isdn), Number(selectedValue))
-            .then((data) => {
-            console.log('Data: ', data);
-        }).catch((error) => {
-            console.error('Error: ', error);
-        });
-    }
 });

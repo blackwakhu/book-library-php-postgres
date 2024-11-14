@@ -1,5 +1,3 @@
-"use strict";
-// other parameters
 import { addAuthorToBook } from "./api";
 // anchor elements
 let book_sel = document.querySelector("#book_sel");

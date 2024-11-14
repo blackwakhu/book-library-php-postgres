@@ -69,9 +69,10 @@ $css = [
 ];
 
 $js = [
+    "../../public/function/books/book.js",
     "../../public/function/function.js",
     "../../public/function/books.js"
-]
+];
 
 
 ?>
